@@ -1,28 +1,42 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const AboutUs = () => {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div className='px-10 text-white bg-[#020202] py-10'>
-      <div className="flex flex-col items-center justify-center">
-        <h1 className="basement text-7xl md:text-9xl leading-none uppercase">Visual</h1>
-        <h1 className="basement text-7xl md:text-9xl leading-none uppercase">Storytelling</h1>
-        <p className='uncut text-[#B0B0B0] max-w-lg text-center pt-10'>We craft visually striking stories that move people. Whether it’s a high-energy commercial, a cinematic brand film, or sleek social content, we bring ideas to life through dynamic video production and powerful storytelling.</p>
-        <div className="flex justify-center mt-10 pb-10">
+    <div className="px-4 sm:px-8 lg:px-10 text-white bg-[#020202] pt-16 sm:pt-20 pb-20">
+      {/* Title Section */}
+      <div className="flex flex-col items-center justify-center text-center">
+        <h1 className="basement text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase">
+          Visual
+        </h1>
+        <h1 className="basement text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase">
+          Storytelling
+        </h1>
+
+        {/* Description */}
+        <p className="uncut text-[#B0B0B0] max-w-md sm:max-w-lg md:max-w-2xl text-center pt-6 sm:pt-10 text-sm sm:text-base md:text-lg leading-relaxed">
+          We craft visually striking stories that move people. Whether it’s a
+          high-energy commercial, a cinematic brand film, or sleek social
+          content, we bring ideas to life through dynamic video production and
+          powerful storytelling.
+        </p>
+
+        {/* Button */}
+        <div className="flex justify-center mt-8 sm:mt-10 pb-10">
           {/* Outer fixed border */}
           <div
             className="rounded-full border border-[#654AFF]"
             style={{
-              width: "170px",
-              height: "60px",
+              width: "140px",
+              height: "50px",
               padding: "2px", // space for scaling content
             }}
           >
             {/* Inner scaling content */}
             <motion.div
-              className="bg-[#654AFF] w-full h-full rounded-full flex items-center justify-center uncut text-white text-[17px] font-light overflow-hidden cursor-pointer"
+              className="bg-[#654AFF] w-full h-full rounded-full flex items-center justify-center uncut text-white text-sm sm:text-[17px] font-light overflow-hidden cursor-pointer"
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
               animate={{ scale: hovered ? 0.96 : 1 }}
@@ -53,11 +67,11 @@ const AboutUs = () => {
               </AnimatePresence>
             </motion.div>
           </div>
-
         </div>
       </div>
 
-      <div className="flex justify-center">
+      {/* Divider */}
+      {/* <div className="flex justify-center">
         <motion.div
           className="border-b border-[#252A3C]"
           initial={{ scaleX: 0, originX: 0.5 }}
@@ -66,9 +80,9 @@ const AboutUs = () => {
           viewport={{ once: true, amount: 0.5 }}
           style={{ width: "100%" }}
         />
-      </div>
+      </div> */}
     </div>
-  )
-}
+  );
+};
 
 export default AboutUs;

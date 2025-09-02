@@ -1,64 +1,66 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Create = () => {
     const [hovered, setHovered] = useState(false);
 
     return (
-        <div className='px-10 text-white bg-[#020202] pb-10'>
-            <div className="flex flex-col items-center justify-center">
-                <h1 className="basement text-7xl md:text-9xl leading-none uppercase">Let's</h1>
-                <h1 className="basement text-7xl md:text-9xl leading-none uppercase">Create</h1>
-                <p className='uncut text-[#AEAEAE] text-lg'>We’re here to turn your vision into powerful video.</p>
-                <p className='uncut text-[#AEAEAE] text-lg'>Reach out, and let’s create something worth watching.</p>
-                <div className="flex justify-center mt-10 pb-10">
-                    {/* Outer fixed border */}
+        <div className="px-4 sm:px-6 md:px-10 text-white bg-[#020202] py-10">
+            {/* Section Content */}
+            <div className="flex flex-col items-center justify-center text-center">
+                {/* Headings */}
+                <h1 className="basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase">
+                    Let's
+                </h1>
+                <h1 className="basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase">
+                    Create
+                </h1>
+
+                {/* Paragraphs */}
+                <p className="uncut text-[#AEAEAE] text-base sm:text-lg md:text-xl mt-4">
+                    We’re here to turn your vision into powerful video.
+                </p>
+                <p className="uncut text-[#AEAEAE] text-base sm:text-lg md:text-xl">
+                    Reach out, and let’s create something worth watching.
+                </p>
+
+                {/* Button */}
+                <div className="flex justify-center mt-8 sm:mt-10 pb-8 sm:pb-10">
+                    {/* Outer border */}
                     <div
                         className="rounded-full border border-[#654AFF]"
                         style={{
-                            width: "170px",
-                            height: "60px",
-                            padding: "2px", // space for scaling content
+                            width: "150px",
+                            height: "52px",
+                            padding: "2px", // ensures spacing for scale
                         }}
                     >
-                        {/* Inner scaling content */}
+                        {/* Inner animated button */}
                         <motion.div
-                            className="bg-[#654AFF] w-full h-full rounded-full flex items-center justify-center uncut text-white text-[17px] font-light overflow-hidden cursor-pointer"
+                            className="bg-[#654AFF] w-full h-full rounded-full flex items-center justify-center uncut text-white text-sm sm:text-base md:text-lg font-light overflow-hidden cursor-pointer"
                             onMouseEnter={() => setHovered(true)}
                             onMouseLeave={() => setHovered(false)}
                             animate={{ scale: hovered ? 0.96 : 1 }}
                             transition={{ duration: 0.2, ease: "easeInOut" }}
                         >
                             <AnimatePresence mode="wait">
-                                {!hovered ? (
-                                    <motion.span
-                                        key="about"
-                                        initial={{ rotate: 12, y: -40, opacity: 0 }}
-                                        animate={{ rotate: 0, y: 0, opacity: 1 }}
-                                        exit={{ rotate: -12, y: -10, opacity: 0 }}
-                                        transition={{ duration: 0.2, ease: "easeInOut" }}
-                                    >
-                                        Reach Out
-                                    </motion.span>
-                                ) : (
-                                    <motion.span
-                                        key="learn"
-                                        initial={{ rotate: 12, y: -40, opacity: 0 }}
-                                        animate={{ rotate: 0, y: 0, opacity: 1 }}
-                                        exit={{ rotate: -12, y: -10, opacity: 0 }}
-                                        transition={{ duration: 0.2, ease: "easeInOut" }}
-                                    >
-                                        Reach Out
-                                    </motion.span>
-                                )}
+                                <motion.span
+                                    key={hovered ? "hover" : "default"}
+                                    initial={{ rotate: 12, y: -40, opacity: 0 }}
+                                    animate={{ rotate: 0, y: 0, opacity: 1 }}
+                                    exit={{ rotate: -12, y: -10, opacity: 0 }}
+                                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                                >
+                                    Reach Out
+                                </motion.span>
                             </AnimatePresence>
                         </motion.div>
                     </div>
-
                 </div>
             </div>
 
-            <div className="flex justify-center">
+            {/* Bottom divider line */}
+            {/* <div className="flex justify-center">
                 <motion.div
                     className="border-b border-[#252A3C]"
                     initial={{ scaleX: 0, originX: 0.5 }}
@@ -67,9 +69,9 @@ const Create = () => {
                     viewport={{ once: true, amount: 0.5 }}
                     style={{ width: "100%" }}
                 />
-            </div>
+            </div> */}
         </div>
-    )
-}
+    );
+};
 
-export default Create
+export default Create;
