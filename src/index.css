@@ -1,0 +1,11 @@
+@import url(https://db.onlinewebfonts.com/c/67d4a5eec5fec4085dbd01cb3f96ff7c?family=Uncut+Sans);
+@import url(https://db.onlinewebfonts.com/c/83569c5d01a8f3991872544736650ae2?family=Basement+Grotesque+Roman);
+@import "tailwindcss";
+
+.uncut {
+    font-family: "Uncut Sans";
+}
+
+.basement {
+    font-family: "Basement Grotesque Roman";
+}

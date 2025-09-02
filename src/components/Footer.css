@@ -1,0 +1,28 @@
+.footer-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-item span {
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.footer-item span:first-child {
+    transform: translateY(0);
+}
+
+.footer-item span:last-child {
+    position: absolute;
+    top: 100%;
+    left: 30%;
+    transform: translateY(0);
+}
+
+.footer-item:hover span:first-child {
+    transform: translateY(-160%);
+}
+
+.footer-item:hover span:last-child {
+    transform: translateY(-160%);
+}
