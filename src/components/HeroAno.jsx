@@ -24,7 +24,7 @@ const HeroAno = () => {
             <div className="relative flex items-center justify-center h-1/2 sm:h-2/3 w-full">
                 {videos.map((video, index) => {
                     const rotate = angle + index * 90;
-                    const scale = (Math.cos((rotate * Math.PI) / 180) + 1.4) / 2.5;
+                    const scale = (Math.cos((rotate * Math.PI) / 180) + 1.4) / 2;
                     const zIndex = Math.round(scale * 10);
 
                     // Responsive distance
