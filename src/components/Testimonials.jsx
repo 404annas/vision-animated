@@ -34,7 +34,7 @@ const testimonials = [
 
 const Testimonials = () => {
     return (
-        <div className="bg-[#020202] text-white py-16 sm:py-20 px-4 sm:px-8 md:px-10">
+        <div className="bg-[#020202] text-white pt-10 sm:pt-10 pb-20 px-4 sm:px-8 md:px-10">
             {/* Section Title */}
             <div className="flex flex-col items-center justify-center mb-10 md:mb-12">
                 <h1 className="basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase text-center">

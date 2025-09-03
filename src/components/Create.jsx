@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import video3 from "../assets/hero-video-3.mp4";
+import video4 from "../assets/hero-video-4.mp4"
 
 const Create = () => {
     const [hovered, setHovered] = useState(false);
@@ -7,7 +9,10 @@ const Create = () => {
     return (
         <div className="px-4 sm:px-6 md:px-10 text-white bg-[#020202] py-10">
             {/* Section Content */}
-            <div className="flex flex-col items-center justify-center text-center">
+            <motion.div initial={{ opacity: 0, scale: 0.8, y: 100 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.5 }} className="flex flex-col items-center justify-center text-center">
                 {/* Headings */}
                 <h1 className="basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase">
                     Let's
@@ -57,10 +62,10 @@ const Create = () => {
                         </motion.div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             {/* Bottom divider line */}
-            {/* <div className="flex justify-center">
+            <div className="flex justify-center">
                 <motion.div
                     className="border-b border-[#252A3C]"
                     initial={{ scaleX: 0, originX: 0.5 }}
@@ -69,7 +74,7 @@ const Create = () => {
                     viewport={{ once: true, amount: 0.5 }}
                     style={{ width: "100%" }}
                 />
-            </div> */}
+            </div>
         </div>
     );
 };

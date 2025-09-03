@@ -114,7 +114,7 @@ const CaseStudies = () => {
             </div>
 
             {/* Divider */}
-            {/* <div className="flex justify-center pt-10 px-4">
+            <div className="flex justify-center pt-10 px-4">
                 <motion.div
                     className="border-b border-[#252A3C]"
                     initial={{ scaleX: 0, originX: 0.5 }}
@@ -123,7 +123,7 @@ const CaseStudies = () => {
                     viewport={{ once: true, amount: 0.5 }}
                     style={{ width: "100%" }}
                 />
-            </div> */}
+            </div>
         </div>
     );
 };

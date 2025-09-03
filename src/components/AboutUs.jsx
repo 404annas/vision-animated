@@ -1,40 +1,132 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import video1 from "../assets/hero-video-1.mp4";
+import video2 from "../assets/hero-video-2.mp4";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const AboutUs = () => {
   const [hovered, setHovered] = useState(false);
 
+  const sectionRef = useRef(null);
+  const video1Ref = useRef(null);
+  const video2Ref = useRef(null);
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=3000", // controls scroll length
+          scrub: true,
+          pin: true,
+          anticipatePin: 1,
+        },
+      });
+
+      // Video 1 animation
+      tl.fromTo(
+        video1Ref.current,
+        { x: "-100%", y: "100%", opacity: 0, scale: 0.5 },
+        {
+          x: "0%",
+          y: "0%",
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+        }
+      ).to(video1Ref.current, {
+        scale: 0,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.in",
+      });
+
+      // Video 2 animation
+      tl.fromTo(
+        video2Ref.current,
+        { x: "100%", y: "100%", opacity: 0, scale: 0.5 },
+        {
+          x: "0%",
+          y: "0%",
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+        }
+      ).to(video2Ref.current, {
+        scale: 0,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.in",
+      });
+
+      // Text content animation (only fade/scale in, no hiding)
+      tl.fromTo(
+        textRef.current,
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 1, ease: "power3.out" }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="px-4 sm:px-8 lg:px-10 text-white bg-[#020202] pt-16 sm:pt-20 pb-20">
-      {/* Title Section */}
-      <div className="flex flex-col items-center justify-center text-center">
-        <h1 className="basement text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase">
+    <section
+      ref={sectionRef}
+      className="relative h-screen bg-black text-white flex items-center justify-center overflow-hidden"
+    >
+      {/* Video 1 */}
+      <video
+        ref={video1Ref}
+        src={video1}
+        autoPlay
+        muted
+        loop
+        className="absolute w-1/2 max-w-lg rounded-xl shadow-lg"
+      />
+
+      {/* Video 2 */}
+      <video
+        ref={video2Ref}
+        src={video2}
+        autoPlay
+        muted
+        loop
+        className="absolute w-1/2 max-w-lg rounded-xl shadow-lg"
+      />
+
+      {/* Text Content (stays visible until section scrolls out) */}
+      <div ref={textRef} className="absolute text-center px-4">
+        <h1 className="basement text-4xl sm:text-6xl md:text-9xl leading-none uppercase text-center">
           Visual
         </h1>
-        <h1 className="basement text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase">
+        <h1 className="basement text-4xl sm:text-6xl md:text-9xl leading-none uppercase text-center">
           Storytelling
         </h1>
-
-        {/* Description */}
-        <p className="uncut text-[#B0B0B0] max-w-md sm:max-w-lg md:max-w-2xl text-center pt-6 sm:pt-10 text-sm sm:text-base md:text-lg leading-relaxed">
+        <p className="uncut text-[#B0B0B0] pt-6 sm:pt-10 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto">
           We craft visually striking stories that move people. Whether it’s a
           high-energy commercial, a cinematic brand film, or sleek social
           content, we bring ideas to life through dynamic video production and
           powerful storytelling.
         </p>
 
-        {/* Button */}
-        <div className="flex justify-center mt-8 sm:mt-10 pb-10">
-          {/* Outer fixed border */}
+        {/* Button with Framer Motion hover */}
+        <div className="flex justify-center mt-8 sm:mt-10">
           <div
             className="rounded-full border border-[#654AFF]"
             style={{
               width: "140px",
               height: "50px",
-              padding: "2px", // space for scaling content
+              padding: "2px",
             }}
           >
-            {/* Inner scaling content */}
             <motion.div
               className="bg-[#654AFF] w-full h-full rounded-full flex items-center justify-center uncut text-white text-sm sm:text-[17px] font-light overflow-hidden cursor-pointer"
               onMouseEnter={() => setHovered(true)}
@@ -43,45 +135,21 @@ const AboutUs = () => {
               transition={{ duration: 0.2, ease: "easeInOut" }}
             >
               <AnimatePresence mode="wait">
-                {!hovered ? (
-                  <motion.span
-                    key="about"
-                    initial={{ rotate: 12, y: -40, opacity: 0 }}
-                    animate={{ rotate: 0, y: 0, opacity: 1 }}
-                    exit={{ rotate: -12, y: -10, opacity: 0 }}
-                    transition={{ duration: 0.2, ease: "easeInOut" }}
-                  >
-                    About Us
-                  </motion.span>
-                ) : (
-                  <motion.span
-                    key="learn"
-                    initial={{ rotate: 12, y: -40, opacity: 0 }}
-                    animate={{ rotate: 0, y: 0, opacity: 1 }}
-                    exit={{ rotate: -12, y: -10, opacity: 0 }}
-                    transition={{ duration: 0.2, ease: "easeInOut" }}
-                  >
-                    About Us
-                  </motion.span>
-                )}
+                <motion.span
+                  key="about"
+                  initial={{ rotate: 12, y: -40, opacity: 0 }}
+                  animate={{ rotate: 0, y: 0, opacity: 1 }}
+                  exit={{ rotate: -12, y: -10, opacity: 0 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                >
+                  About Us
+                </motion.span>
               </AnimatePresence>
             </motion.div>
           </div>
         </div>
       </div>
-
-      {/* Divider */}
-      {/* <div className="flex justify-center">
-        <motion.div
-          className="border-b border-[#252A3C]"
-          initial={{ scaleX: 0, originX: 0.5 }}
-          whileInView={{ scaleX: 1 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
-          viewport={{ once: true, amount: 0.5 }}
-          style={{ width: "100%" }}
-        />
-      </div> */}
-    </div>
+    </section>
   );
 };
 

@@ -29,26 +29,27 @@ const Navbar = () => {
 
         {/* Right Side - Button + Plus */}
         <div className="flex items-center gap-3 sm:gap-4">
-          {/* Get in Touch Button */}
-          <div className="flex justify-center">
-            <div
-              className="rounded-full border border-[#654AFF]"
-              style={{
-                width: "140px",
-                height: "48px",
-                padding: "2px",
-              }}
+          {/* Outer fixed border */}
+          <div
+            className="rounded-full border border-[#654AFF]"
+            style={{
+              width: "150px",
+              height: "50px",
+              padding: "2px", // space for scaling content
+            }}
+          >
+            {/* Inner scaling content */}
+            <motion.div
+              className="bg-[#654AFF] w-full h-full rounded-full flex items-center justify-center uncut text-white text-sm sm:text-[17px] font-light overflow-hidden cursor-pointer"
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+              animate={{ scale: hovered ? 0.96 : 1 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
             >
-              <motion.div
-                className="bg-[#654AFF] w-full h-full rounded-full flex items-center justify-center text-white text-sm sm:text-[16px] font-light overflow-hidden cursor-pointer"
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-                animate={{ scale: hovered ? 0.96 : 1 }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
-              >
-                <AnimatePresence mode="wait">
+              <AnimatePresence mode="wait">
+                {!hovered ? (
                   <motion.span
-                    key="cta"
+                    key="about"
                     initial={{ rotate: 12, y: -40, opacity: 0 }}
                     animate={{ rotate: 0, y: 0, opacity: 1 }}
                     exit={{ rotate: -12, y: -10, opacity: 0 }}
@@ -56,10 +57,21 @@ const Navbar = () => {
                   >
                     Get in Touch
                   </motion.span>
-                </AnimatePresence>
-              </motion.div>
-            </div>
+                ) : (
+                  <motion.span
+                    key="learn"
+                    initial={{ rotate: 12, y: -40, opacity: 0 }}
+                    animate={{ rotate: 0, y: 0, opacity: 1 }}
+                    exit={{ rotate: -12, y: -10, opacity: 0 }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                  >
+                    Get in Touch
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </motion.div>
           </div>
+
 
           {/* Plus Icon */}
           <div className="bg-[#654AFF] rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center cursor-pointer">
@@ -69,7 +81,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </nav>
+    </nav >
   );
 };
 
