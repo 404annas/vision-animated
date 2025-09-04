@@ -34,6 +34,7 @@ const Hero = () => {
 
           return (
             <img
+            loading='lazy'
               key={index}
               src={video}
               className="absolute rounded-xl"

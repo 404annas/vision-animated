@@ -28,7 +28,7 @@ const HeroAno = () => {
             <div className="relative flex items-center justify-center h-1/2 sm:h-2/3 w-full">
                 {videos.map((video, index) => {
                     const rotate = angle + index * 90;
-                    const scale = (Math.cos((rotate * Math.PI) / 180) + 1.4) / 2;
+                    const scale = (Math.cos((rotate * Math.PI) / 180) + 1.5) / 1.7;
                     const zIndex = Math.round(scale * 10);
 
                     // Responsive distance
@@ -37,12 +37,10 @@ const HeroAno = () => {
                     const y = Math.cos((rotate * Math.PI) / 180) * 10;
 
                     return (
-                        <video
+                        <img
+                        loading='lazy'
                             key={index}
                             src={video}
-                            autoPlay
-                            loop
-                            muted
                             className="absolute rounded-md sm:rounded-lg shadow-md"
                             style={{
                                 transform: `translate(${x}px, ${y}px) scale(${scale})`,

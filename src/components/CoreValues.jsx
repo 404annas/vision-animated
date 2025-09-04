@@ -39,7 +39,7 @@ const CoreValues = () => {
   };
 
   return (
-    <section className="bg-[#020202] text-white py-20 px-4 sm:px-8 lg:px-6">
+    <section className="bg-[#020202] text-white pb-20 px-4 sm:px-8 lg:px-6">
       {/* Heading */}
       <div className="flex flex-col items-center justify-center text-center">
         <h1 className="basement text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase">

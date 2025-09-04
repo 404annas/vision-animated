@@ -57,7 +57,7 @@ const CaseStudies = () => {
                         muted
                         loop
                         playsInline
-                        className="w-full h-[350px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover"
+                        className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover"
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
                         <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#D88281] uppercase basement">

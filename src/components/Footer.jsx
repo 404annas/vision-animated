@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="flex items-center flex-col gap-6">
           {/* Logo */}
           <img
-            className="w-28 cursor-pointer hover:opacity-80 transition-all duration-300"
+            className="w-16 sm:w-28 cursor-pointer hover:opacity-80 transition-all duration-300"
             loading="lazy"
             src={logo}
             alt="Logo"
@@ -35,7 +35,7 @@ const Footer = () => {
           <div className="flex items-center justify-center gap-4 sm:gap-6 mt-8"> <div className="footer-item bg-[#020202] border border-[#4D4944] hover:border-[#67635E] text-white p-3 rounded-full cursor-pointer"> <span><a href="https://www.instagram.com/f_e_p_o_/"><Instagram size={20} /> </a></span> <span><a href="https://www.instagram.com/f_e_p_o_/"> <Instagram size={20} /> </a></span> </div> <div className="footer-item bg-[#020202] border border-[#4D4944] hover:border-[#67635E] text-white p-3 rounded-full cursor-pointer"> <span> <Twitter size={20} /> </span> <span> <Twitter size={20} /> </span> </div> <div className="footer-item bg-[#020202] border border-[#4D4944] hover:border-[#67635E] text-white p-3 rounded-full cursor-pointer"> <span> <Linkedin size={20} /> </span> <span> <Linkedin size={20} /> </span> </div> <div className="footer-item bg-[#020202] border border-[#4D4944] hover:border-[#67635E] transition-all duration-300 text-white p-3 rounded-full cursor-pointer"> <span> <Facebook size={20} /> </span> <span> <Facebook size={20} /> </span> </div> </div>
         </div>
 
-        <div className="text-center pt-10 basement">
+        <div className="text-center pt-10 basement text-sm sm:text-base">
           <a href="tel: +92 333 8805362"><p>Contact Us: +92 333 8805362</p></a>
         </div>
       </footer>
