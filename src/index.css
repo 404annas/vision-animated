@@ -2,6 +2,10 @@
 @import url(https://db.onlinewebfonts.com/c/83569c5d01a8f3991872544736650ae2?family=Basement+Grotesque+Roman);
 @import "tailwindcss";
 
+html {
+    scroll-behavior: smooth;
+}
+
 .uncut {
     font-family: "Uncut Sans";
 }

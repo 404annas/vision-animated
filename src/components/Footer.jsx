@@ -2,6 +2,7 @@ import React from "react";
 import { Twitter, Instagram, Linkedin, Facebook } from "lucide-react";
 import "./Footer.css";
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -10,12 +11,14 @@ const Footer = () => {
         {/* Top section */}
         <div className="flex items-center flex-col gap-6">
           {/* Logo */}
-          <img
-            className="w-16 sm:w-28 cursor-pointer hover:opacity-80 transition-all duration-300"
-            loading="lazy"
-            src={logo}
-            alt="Logo"
-          />
+          <Link to={"/"}>
+            <img
+              className="w-16 sm:w-24 cursor-pointer hover:opacity-80 transition-all duration-300"
+              loading="lazy"
+              src={logo}
+              alt="Logo"
+            />
+          </Link>
 
           {/* Tagline */}
           <p className="uncut uppercase text-center max-w-md text-sm sm:text-base text-[#BABABA]">

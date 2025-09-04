@@ -1,11 +1,14 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import caseVideo1 from "../assets/work1.mp4";
 import caseVideo2 from "../assets/work3.mp4";
 import caseVideo3 from "../assets/work4.mp4";
 import caseVideo4 from "../assets/work5.mp4";
+import { Link } from "react-router-dom";
 
 const CaseStudies = () => {
+    const [hovered, setHovered] = useState(false);
+
     return (
         <div className="bg-black text-white px-4 pb-10 relative">
             {/* Title */}
@@ -112,6 +115,50 @@ const CaseStudies = () => {
                     </div>
                 </motion.div>
             </div>
+
+            <Link to={"/portfolio"} onClick={() => scrollTo(0, 0)}>
+                <div
+                    className="rounded-full border border-[#654AFF] mx-auto mt-10"
+                    style={{
+                        width: "160px",
+                        height: "50px",
+                        padding: "2px", // space for scaling content
+                    }}
+                >
+                    {/* Inner scaling content */}
+                    <motion.div
+                        className="bg-[#654AFF] w-full h-full rounded-full flex items-center justify-center uncut text-white text-sm sm:text-[17px] font-light overflow-hidden cursor-pointer"
+                        onMouseEnter={() => setHovered(true)}
+                        onMouseLeave={() => setHovered(false)}
+                        animate={{ scale: hovered ? 0.96 : 1 }}
+                        transition={{ duration: 0.2, ease: "easeInOut" }}
+                    >
+                        <AnimatePresence mode="wait">
+                            {!hovered ? (
+                                <motion.span
+                                    key="about"
+                                    initial={{ rotate: 12, y: -40, opacity: 0 }}
+                                    animate={{ rotate: 0, y: 0, opacity: 1 }}
+                                    exit={{ rotate: -12, y: -10, opacity: 0 }}
+                                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                                >
+                                    View More
+                                </motion.span>
+                            ) : (
+                                <motion.span
+                                    key="learn"
+                                    initial={{ rotate: 12, y: -40, opacity: 0 }}
+                                    animate={{ rotate: 0, y: 0, opacity: 1 }}
+                                    exit={{ rotate: -12, y: -10, opacity: 0 }}
+                                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                                >
+                                    View More
+                                </motion.span>
+                            )}
+                        </AnimatePresence>
+                    </motion.div>
+                </div>
+            </Link>
 
             {/* Divider */}
             <div className="flex justify-center pt-10 px-4">
