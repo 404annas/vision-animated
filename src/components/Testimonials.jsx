@@ -4,31 +4,21 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import testi1 from "../assets/testi1.jpg";
+import testi2 from "../assets/testi2.jpg";
 
 const testimonials = [
     {
-        name: "Ethan Cole",
+        name: "Sikandar Ali",
         image:
-            "https://cdn.prod.website-files.com/683f6a1d3749cee9a45775ce/6840f957f9769a64b56812dc_Warm%20and%20Stylish%20Latino%20with%20Beard.webp",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a malesuada tellus, consectetur convallis nibh.",
+            testi1,
+        text: "Blown away by the entire (FEPO's) team on this (CS Anthem Music Video). Shahrukh killed it. FEPO FOREVER!",
     },
     {
-        name: "Maya Blake",
+        name: "Adnan Malik",
         image:
-            "https://cdn.prod.website-files.com/683f6a1d3749cee9a45775ce/6840f957f9769a64b56812d0_Sunny%20Autumnal%20Elegance.webp",
-        text: "Aenean elit velit, pharetra hendrerit laoreet quis, molestie eu mi. Nulla facilisi.",
-    },
-    {
-        name: "Noah Bennett",
-        image:
-            "https://cdn.prod.website-files.com/683f6a1d3749cee9a45775ce/6840f957f9769a64b56812c4_Harmonious%20Purple%20Palette%20-%20Candid%20Gentleman%20Portrait.webp",
-        text: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
-    },
-    {
-        name: "Marcus Hale",
-        image:
-            "https://cdn.prod.website-files.com/683f6a1d3749cee9a45775ce/6840f957f9769a64b56812e8_Cheerful%20Curly-Haired%20Man%20in%20Tortoiseshell%20Glasses.webp",
-        text: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
+            testi2,
+        text: "Amazing work Shahrukh and congratulations on creating this masterpiece! - on Why Not Meri Jaan - Young Stunners",
     },
 ];
 
@@ -60,7 +50,7 @@ const Testimonials = () => {
                             <img
                                 src={t.image}
                                 alt={t.name}
-                                className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full border-2 border-[#202430] shadow-md object-cover"
+                                className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full border-2 border-[#202430] shadow-md"
                             />
                             <h3 className="mt-4 text-lg sm:text-xl md:text-2xl basement">
                                 {t.name}

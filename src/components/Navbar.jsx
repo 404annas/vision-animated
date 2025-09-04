@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [hovered, setHovered] = useState(false);
@@ -11,9 +12,9 @@ const Navbar = () => {
         {/* Left Side - Logo */}
         <div className="flex items-center gap-2">
           <img
-            className="w-20 sm:w-24 md:w-28"
+            className="w-10 sm:w-14 md:w-16"
             loading="lazy"
-            src="https://cdn.prod.website-files.com/683f6a1d3749cee9a45775ce/68424bff643c52d0005a4554_logo.svg"
+            src={logo}
             alt="Logo"
           />
           <motion.p

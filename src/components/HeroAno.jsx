@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { CornerRightDown } from 'lucide-react';
-import heroVideo1 from "../assets/hero-video-1.mp4";
-import heroVideo2 from "../assets/hero-video-2.mp4";
-import heroVideo3 from "../assets/hero-video-3.mp4";
-import heroVideo4 from "../assets/hero-video-4.mp4";
+import heroVideo1 from "../assets/hero1.jpg";
+import heroVideo3 from "../assets/hero3.jpg";
+import heroVideo4 from "../assets/hero4.jpg";
+import heroVideo2 from "../assets/hero2.jpg";
+import heroVideo5 from "../assets/hero5.jpg";
+import heroVideo6 from "../assets/hero6.jpg";
+import heroVideo7 from "../assets/hero7.png";
+import heroVideo8 from "../assets/hero8.jpg";
 
-const videos = [heroVideo1, heroVideo2, heroVideo3, heroVideo4];
+const videos = [heroVideo1, heroVideo2, heroVideo3, heroVideo4, heroVideo5, heroVideo6, heroVideo7, heroVideo8];
 
 const HeroAno = () => {
     const [angle, setAngle] = useState(0);
@@ -55,13 +59,8 @@ const HeroAno = () => {
 
             {/* Text Layer */}
             <div className="relative z-20 flex flex-col gap-4 items-center justify-center text-white pt-20 sm:pt-10 text-center">
-                <h1 className="basement uppercase text-3xl sm:text-5xl md:text-6xl leading-0">Visual</h1>
+                <h1 className="basement uppercase text-3xl sm:text-5xl md:text-6xl leading-0">Fepo</h1>
                 <h1 className="basement uppercase text-3xl sm:text-5xl md:text-6xl">Studio&copy;</h1>
-
-                <div className="flex flex-row items-center justify-center gap-44 sm:gap-6 uncut text-gray-500 text-sm sm:text-base">
-                    <p>Since 2010</p>
-                    <p>Los Angeles, CA</p>
-                </div>
 
                 <div className="flex gap-2 items-center uncut text-gray-500 text-sm sm:text-base">
                     <p>Scroll Down</p>

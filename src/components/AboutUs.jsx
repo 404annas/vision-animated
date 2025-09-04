@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import video1 from "../assets/hero-video-1.mp4";
-import video2 from "../assets/hero-video-2.mp4";
+import video1 from "../assets/video1.mp4";
+import video2 from "../assets/video2.mp4";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -105,10 +105,10 @@ const AboutUs = () => {
       {/* Text Content (stays visible until section scrolls out) */}
       <div ref={textRef} className="absolute text-center px-4">
         <h1 className="basement text-4xl sm:text-6xl md:text-9xl leading-none uppercase text-center">
-          Visual
+          Who
         </h1>
         <h1 className="basement text-4xl sm:text-6xl md:text-9xl leading-none uppercase text-center">
-          Storytelling
+          We Are?
         </h1>
         <p className="uncut text-[#B0B0B0] pt-6 sm:pt-10 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto">
           We craft visually striking stories that move people. Whether it’s a

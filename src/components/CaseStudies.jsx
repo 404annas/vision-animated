@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import caseVideo1 from "../assets/case-video-1.mp4";
-import caseVideo2 from "../assets/case-video-2.mp4";
-import caseVideo3 from "../assets/case-video-3.mp4";
-import caseVideo4 from "../assets/case-video-4.mp4";
+import caseVideo1 from "../assets/work1.mp4";
+import caseVideo2 from "../assets/work3.mp4";
+import caseVideo3 from "../assets/work4.mp4";
+import caseVideo4 from "../assets/work5.mp4";
 
 const CaseStudies = () => {
     return (
@@ -11,10 +11,10 @@ const CaseStudies = () => {
             {/* Title */}
             <div className="flex flex-col items-center justify-center mb-10 md:mb-16">
                 <h1 className="basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase text-center">
-                    Case
+                    Our
                 </h1>
                 <h1 className="basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase text-center">
-                    Studies
+                    Work
                 </h1>
             </div>
 
@@ -38,7 +38,7 @@ const CaseStudies = () => {
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
                         <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#7BC6D6] uppercase basement">
-                            Bright
+                            Husn-e-eid
                         </h2>
                     </div>
                 </motion.div>
@@ -57,11 +57,11 @@ const CaseStudies = () => {
                         muted
                         loop
                         playsInline
-                        className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover"
+                        className="w-full h-[350px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover"
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
                         <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#D88281] uppercase basement">
-                            Beyond
+                            Velo
                         </h2>
                     </div>
                 </motion.div>
@@ -84,7 +84,7 @@ const CaseStudies = () => {
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
                         <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#3C4D58] uppercase basement">
-                            Harlo
+                            Why not
                         </h2>
                     </div>
                 </motion.div>
@@ -107,7 +107,7 @@ const CaseStudies = () => {
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
                         <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#CACB8D] uppercase basement">
-                            Lumen
+                            Peechay hut
                         </h2>
                     </div>
                 </motion.div>
