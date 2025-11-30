@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { CornerRightDown } from 'lucide-react';
-import heroVideo1 from "../assets/hero1.jpg";
-import heroVideo3 from "../assets/hero3.jpg";
-import heroVideo4 from "../assets/hero4.jpg";
-import heroVideo2 from "../assets/hero2.jpg";
-import heroVideo5 from "../assets/hero5.jpg";
-import heroVideo6 from "../assets/hero6.jpg";
-import heroVideo7 from "../assets/hero7.png";
-import heroVideo8 from "../assets/hero8.jpg";
+import heroVideo1 from "../assets/hero13.jpg";
+import heroVideo3 from "../assets/hero19.jpg";
+import heroVideo4 from "../assets/hero22.jpg";
+import heroVideo5 from "../assets/hero17.jpeg";
 
-const videos = [heroVideo1, heroVideo2, heroVideo3, heroVideo4, heroVideo5, heroVideo6, heroVideo7, heroVideo8];
+const videos = [heroVideo1, heroVideo3, heroVideo5, heroVideo4];
 
 const HeroAno = () => {
     const [angle, setAngle] = useState(0);
@@ -38,7 +34,7 @@ const HeroAno = () => {
 
                     return (
                         <img
-                        loading='lazy'
+                            loading='lazy'
                             key={index}
                             src={video}
                             className="absolute rounded-md sm:rounded-lg shadow-md"

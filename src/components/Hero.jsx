@@ -1,63 +1,87 @@
 import React, { useEffect, useState } from 'react';
 import { CornerRightDown } from 'lucide-react';
-import heroVideo1 from "../assets/hero1.jpg";
-import heroVideo3 from "../assets/hero3.jpg";
-import heroVideo4 from "../assets/hero4.jpg";
-import heroVideo2 from "../assets/hero2.jpg";
-import heroVideo5 from "../assets/hero5.jpg";
-import heroVideo6 from "../assets/hero6.jpg";
-import heroVideo7 from "../assets/hero7.png";
-import heroVideo8 from "../assets/hero8.jpg";
 
-const videos = [heroVideo1, heroVideo2, heroVideo3, heroVideo4, heroVideo5, heroVideo6, heroVideo7, heroVideo8];
+// NOTE: Replace these placeholder URLs with your actual imports
+// Apne assets wapis import karein yahan:
+import heroVideo1 from "../assets/hero13.jpg";
+import heroVideo3 from "../assets/hero19.jpg";
+import heroVideo4 from "../assets/hero22.jpg";
+
+const videos = [heroVideo1, heroVideo3, heroVideo4];
 
 const Hero = () => {
   const [angle, setAngle] = useState(0);
+  const [radius, setRadius] = useState(600);
 
   useEffect(() => {
+    // Screen size ke mutabiq radius adjust karein
+    const handleResize = () => {
+      setRadius(window.innerWidth < 768 ? 220 : 600);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    // Har 3 second mein 120 degrees ghumaen
     const interval = setInterval(() => {
-      setAngle(prev => prev + 90);
+      setAngle(prev => prev + 120);
     }, 3000);
-    return () => clearInterval(interval);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
-    <section className="bg-[#020202] text-white h-screen px-10 relative overflow-hidden">
-      <div className="absolute bottom-20 inset-0 flex items-center justify-center">
-        {videos.map((video, index) => {
-          const rotate = angle + index * 90;
-          const scale = (Math.cos((rotate * Math.PI) / 180) + 1.5) / 1.2;
-          const zIndex = Math.round(scale * 10);
+    <section className="bg-[#020202] text-white h-screen px-10 relative overflow-hidden font-sans" style={{ perspective: '1000px' }}>
 
-          const x = Math.sin((rotate * Math.PI) / 180) * 500;
-          const y = Math.cos((rotate * Math.PI) / 180) * 0;
+      {/* 🟢 CHANGE 1 & 2: Images container ko high z-index (z-20) diya gaya hai. */}
+      {/* Images container ko text container se ooper rakhne ke liye z-index barhaya gaya hai */}
+      <div className="absolute bottom-20 inset-0 flex items-center justify-center z-20" style={{ transformStyle: 'preserve-3d' }}>
+        {videos.map((video, index) => {
+          const rotate = angle + index * 120;
+          const radian = (rotate * Math.PI) / 180;
+          const scale = (Math.cos(radian) + 2.8) / 2.1;
+
+          // 🟢 CHANGE 3: Individual image zIndex ki base value barha di hai.
+          // Taake yeh hamesha text se ooper rahein. (Text ka z-index ab kam hai ya default)
+          const zIndex = Math.round(scale * 10) + 20;
+
+          const x = Math.sin(radian) * radius;
+          const y = Math.cos(radian) * 0;
 
           return (
             <img
-            loading='lazy'
+              loading='lazy'
               key={index}
               src={video}
-              className="absolute rounded-xl"
+              alt={`Hero ${index}`}
+              className="absolute rounded-xl object-cover"
               style={{
                 transform: `translate(${x}px, ${y}px) scale(${scale})`,
                 zIndex: zIndex,
-                width: `${120 * scale}px`,
-                height: `${100 * scale}px`,
+                willChange: 'transform',
+                width: `${200 * scale}px`,
+                height: `${130 * scale}px`,
                 objectFit: 'cover',
-                transition: 'transform 0.8s, width 0.8s, height 0.8s',
+                transition: 'transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55), width 0.8s, height 0.7s',
+                opacity: scale < 0.9 ? 0.7 : 1,
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)'
               }}
             />
-
           );
         })}
       </div>
 
-      <div className='flex flex-col items-center pt-36 relative z-10'>
+      {/* 🔴 CHANGE 2: Text container se z-10 class hata di hai (ya isse z-index: 1 set kar diya hai) */}
+      {/* Ab images (z-20) text se ooper nazar aayengi */}
+      <div className='flex flex-col items-center pt-36 relative'>
         <h1 className='basement uppercase text-white text-[14vw] leading-36 text-center'>Fepo</h1>
         <h1 className='basement uppercase text-white text-[14vw] leading-none text-center'>Studio&copy;</h1>
       </div>
 
-      <div className='flex items-center justify-center gap-2 pt-14 text-gray-500 relative z-10'>
+      <div className='flex items-center justify-center gap-2 pt-14 text-gray-500 relative'>
         <p className='uncut'>Scroll Down</p>
         <p><CornerRightDown size={18} /></p>
       </div>
