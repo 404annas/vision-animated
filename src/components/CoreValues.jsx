@@ -59,7 +59,7 @@ const CoreValues = () => {
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.5 }}
           >
             <img loading="lazy" className="w-10 sm:w-20 invert" src={card.icon} alt={`Icon ${index + 1}`} />
             <div className="flex flex-col gap-1">

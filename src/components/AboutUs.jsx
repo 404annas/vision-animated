@@ -122,7 +122,7 @@ const AboutUs = () => {
           <div
             className="rounded-full border border-[#654AFF]"
             style={{
-              width: "140px",
+              width: "160px",
               height: "50px",
               padding: "2px",
             }}
@@ -142,7 +142,7 @@ const AboutUs = () => {
                   exit={{ rotate: -12, y: -10, opacity: 0 }}
                   transition={{ duration: 0.2, ease: "easeInOut" }}
                 >
-                  About Us
+                  Get in Touch
                 </motion.span>
               </AnimatePresence>
             </motion.div>

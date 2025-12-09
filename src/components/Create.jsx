@@ -12,7 +12,7 @@ const Create = () => {
                 initial={{ opacity: 0, scale: 0.8, y: 100 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                viewport={{ once: false, amount: 0.5 }}
+                viewport={{ once: true, amount: 0.3 }}
                 className="flex flex-col items-center justify-center text-center"
             >
                 {/* Headings */}
@@ -31,7 +31,7 @@ const Create = () => {
                     Reach out, and let’s create something worth watching.
                 </p>
 
-                <img src={brands} alt="Brands" className="bg-white mt-10 py-4 rounded-3xl"/>
+                <img src={brands} alt="Brands" className="bg-white mt-10 py-4 rounded-3xl" />
 
                 {/* Button */}
                 <div className="flex justify-center mt-8 sm:mt-10 pb-8 sm:pb-10">

@@ -54,7 +54,7 @@ const HeroAno = () => {
             {/* Text Layer */}
             <div className="relative z-20 flex flex-col gap-4 items-center justify-center text-white pt-20 sm:pt-10 text-center">
                 <h1 className="basement uppercase text-3xl sm:text-5xl md:text-6xl leading-0">Fepo</h1>
-                <h1 className="basement uppercase text-3xl sm:text-5xl md:text-6xl">Studio&copy;</h1>
+                {/* <h1 className="basement uppercase text-3xl sm:text-5xl md:text-6xl">Studio&copy;</h1> */}
 
                 <div className="flex gap-2 items-center uncut text-gray-500 text-sm sm:text-base">
                     <p>Scroll Down</p>
