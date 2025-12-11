@@ -116,7 +116,7 @@ const AboutUs = () => {
           muted
           loop
           playsInline
-          className="absolute w-[300px] md:w-[400px] h-[400px] object-cover rounded-3xl shadow-2xl z-20"
+          className="absolute w-[200px] md:w-[400px] h-[300px] object-cover rounded-3xl shadow-2xl z-20"
           style={{
             left: '50%',
             top: '50%',
@@ -133,7 +133,7 @@ const AboutUs = () => {
           muted
           loop
           playsInline
-          className="absolute w-[300px] md:w-[400px] h-[400px] object-cover rounded-3xl shadow-2xl z-20"
+          className="absolute w-[200px] md:w-[400px] h-[300px] object-cover rounded-3xl shadow-2xl z-20"
           style={{
             left: '50%',
             top: '50%',
