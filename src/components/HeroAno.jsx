@@ -115,7 +115,7 @@ const HeroAno = () => {
 
             {/* CAROUSEL */}
             <div
-                className="absolute inset-0 flex items-center justify-center z-20 -mt-20"
+                className="absolute inset-0 flex items-center justify-center z-20 -mt-40"
                 style={{ transformStyle: "preserve-3d" }}
             >
                 {videos.map((video, i) => (
@@ -137,7 +137,7 @@ const HeroAno = () => {
             </div>
 
             {/* TEXT */}
-            <div className="relative z-10 flex flex-col items-center pt-70 sm:pt-40">
+            <div className="relative z-10 flex flex-col items-center pt-80 sm:pt-40">
                 <h1 className="basement uppercase text-white text-[18vw] sm:text-[20vw] leading-none">
                     Fepo
                 </h1>
