@@ -92,7 +92,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute top-full mt-2 right-0 w-92 bg-white rounded-xl shadow-2xl px-5 pb-5 pt-3 z-40"
+                    className="absolute top-full mt-2 -right-13 sm:right-0 w-80 sm:w-92 bg-white rounded-xl shadow-2xl px-5 pb-5 pt-3 z-40"
                   >
                     {/* Close Icon */}
                     <div className="flex justify-end mb-2">
