@@ -35,11 +35,11 @@ const Create = () => {
                 className="flex flex-col items-center justify-center text-center"
             >
                 {/* Headings */}
-                <h1 id="brands" className="basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl uppercase">
+                {/* <h1 className="basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl uppercase">
                     Brands Fepo
-                </h1>
-                <h1 className="basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl uppercase">
-                    Work with
+                </h1> */}
+                <h1 id="brands" className="basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl uppercase">
+                    We Work with
                 </h1>
 
                 {/* Text */}

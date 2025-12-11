@@ -29,8 +29,9 @@ const Footer = () => {
           <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 md:gap-16 text-[#9C979F] uncut pt-8">
             <p className="cursor-pointer hover:text-white">Home</p>
             <p className="cursor-pointer hover:text-white">About</p>
-            <p className="cursor-pointer hover:text-white">Case Studies</p>
             <p className="cursor-pointer hover:text-white">Services</p>
+            <p className="cursor-pointer hover:text-white">Works</p>
+            <p className="cursor-pointer hover:text-white">Results</p>
             <p className="cursor-pointer hover:text-white">Contact</p>
           </div>
 
