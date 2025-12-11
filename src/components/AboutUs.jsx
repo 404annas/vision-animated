@@ -148,7 +148,7 @@ const AboutUs = () => {
             Who<br />We Are?
           </h1>
 
-          <p className="uncut text-[#B0B0B0] pt-8 sm:pt-12 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto font-light">
+          <p className="uncut text-[#B0B0B0] pt-8 sm:pt-12 text-sm sm:text-base md:text-xl leading-relaxed max-w-3xl mx-auto font-light">
             We craft visually striking stories that move people. Whether it’s a
             high-energy commercial, a cinematic brand film, or sleek social
             content, we bring ideas to life.
@@ -184,7 +184,7 @@ const AboutUs = () => {
         </div>
 
       </section>
-      <div className="flex justify-center pb-20 px-4">
+      {/* <div className="flex justify-center pb-20 px-4">
         <motion.div
           className="border-b border-[#252A3C]"
           initial={{ scaleX: 0, originX: 0.5 }}
@@ -193,7 +193,7 @@ const AboutUs = () => {
           viewport={{ once: true, amount: 0.5 }}
           style={{ width: "100%" }}
         />
-      </div>
+      </div> */}
     </div>
   );
 };

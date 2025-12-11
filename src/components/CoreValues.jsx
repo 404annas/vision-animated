@@ -87,7 +87,7 @@ const CoreValues = () => {
           scrollTrigger: {
             trigger: containerRef.current,
             start: "-20%",  // Starts slightly earlier
-            end: "30%",
+            end: "25%",
             scrub: 5,        // Slightly heavier scrub for the spin weight
           },
         }
@@ -105,7 +105,7 @@ const CoreValues = () => {
       style={{ perspective: "2000px" }}
     >
       {/* Heading */}
-      <div className="flex flex-col items-center justify-center text-center pt-20">
+      <div className="flex flex-col items-center justify-center text-center pt-10">
         <h1 className="basement text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase">
           What
         </h1>

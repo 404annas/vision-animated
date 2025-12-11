@@ -127,7 +127,7 @@ const Hero = () => {
         <h1 className='basement uppercase text-white text-[14vw] leading-36 text-center'>Fepo</h1>
       </div>
 
-      <div className='flex items-center justify-center gap-2 pt-14 text-gray-500 relative z-10'>
+      <div className='flex items-center justify-center gap-2 pt-68 text-gray-500 relative z-10'>
         <p className='uncut'>Scroll Down</p>
         <p><CornerRightDown size={18} /></p>
       </div>
