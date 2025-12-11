@@ -105,8 +105,9 @@ const CoreValues = () => {
       style={{ perspective: "2000px" }}
     >
       {/* Heading */}
-      <div className="flex flex-col items-center justify-center text-center pt-10">
-        <h1 className="basement text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase">
+      <div
+        className="flex flex-col items-center justify-center text-center pt-10">
+        <h1 id="services" className="basement text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase">
           What
         </h1>
         <h1 className="basement text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase">

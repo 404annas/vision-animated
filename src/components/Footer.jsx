@@ -9,7 +9,7 @@ const Footer = () => {
     <>
       <footer className="bg-[#020202] text-white px-4 sm:px-6 md:px-10 py-10">
         {/* Top section */}
-        <div className="flex items-center flex-col gap-6">
+        <div id="contact" className="flex items-center flex-col gap-6">
           {/* Logo */}
           <Link to={"/"}>
             <img

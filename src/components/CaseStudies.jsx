@@ -10,7 +10,7 @@ const CaseStudies = () => {
     const [hovered, setHovered] = useState(false);
 
     return (
-        <div className="bg-black text-white px-4 pb-10 relative">
+        <div id="work" className="bg-black text-white px-4 pb-10 relative">
             {/* Title */}
             <div className="flex flex-col items-center justify-center mb-10 md:mb-16">
                 <h1 className="basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase text-center">

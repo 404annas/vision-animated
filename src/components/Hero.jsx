@@ -97,7 +97,7 @@ const Hero = () => {
       style={{ perspective: '1000px', backfaceVisibility: 'hidden' }}
     >
       <div
-        className="absolute bottom-30 inset-0 flex items-center justify-center z-20"
+        className="absolute bottom-40 inset-0 flex items-center justify-center z-20"
         style={{ transformStyle: 'preserve-3d' }}
       >
         {videos.map((video, index) => {
@@ -127,7 +127,7 @@ const Hero = () => {
         <h1 className='basement uppercase text-white text-[14vw] leading-36 text-center'>Fepo</h1>
       </div>
 
-      <div className='flex items-center justify-center gap-2 pt-68 text-gray-500 relative z-10'>
+      <div className='flex items-center justify-center gap-2 pt-44 text-gray-500 relative z-10'>
         <p className='uncut'>Scroll Down</p>
         <p><CornerRightDown size={18} /></p>
       </div>

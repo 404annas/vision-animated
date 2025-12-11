@@ -143,7 +143,8 @@ const AboutUs = () => {
         />
 
         {/* TEXT */}
-        <div ref={textRef} className="absolute text-center px-4 z-10 w-full">
+        <div id="about"
+          ref={textRef} className="absolute text-center px-4 z-10 w-full">
           <h1 className="basement text-5xl sm:text-7xl md:text-[9rem] leading-[0.9] uppercase text-center font-bold tracking-tighter">
             Who<br />We Are?
           </h1>
@@ -168,15 +169,29 @@ const AboutUs = () => {
                 transition={{ duration: 0.2, ease: "easeInOut" }}
               >
                 <AnimatePresence mode="wait">
-                  <motion.span
-                    key="about"
-                    initial={{ rotate: 12, y: -40, opacity: 0 }}
-                    animate={{ rotate: 0, y: 0, opacity: 1 }}
-                    exit={{ rotate: -12, y: -10, opacity: 0 }}
-                    transition={{ duration: 0.2, ease: "easeInOut" }}
-                  >
-                    Get in Touch
-                  </motion.span>
+                  {!hovered ? (
+                    <motion.span
+                      key="contact"
+                      onClick={() => handleScroll("contact")}
+                      initial={{ rotate: 12, y: -40, opacity: 0 }}
+                      animate={{ rotate: 0, y: 0, opacity: 1 }}
+                      exit={{ rotate: -12, y: -10, opacity: 0 }}
+                      transition={{ duration: 0.2, ease: "easeInOut" }}
+                    >
+                      Get in Touch
+                    </motion.span>
+                  ) : (
+                    <motion.span
+                      key="learn"
+                      onClick={() => handleScroll("contact")}
+                      initial={{ rotate: 12, y: -40, opacity: 0 }}
+                      animate={{ rotate: 0, y: 0, opacity: 1 }}
+                      exit={{ rotate: -12, y: -10, opacity: 0 }}
+                      transition={{ duration: 0.2, ease: "easeInOut" }}
+                    >
+                      Get in Touch
+                    </motion.span>
+                  )}
                 </AnimatePresence>
               </motion.div>
             </div>
