@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus } from "lucide-react";
+import { Plus, Minus, User, Mail, MessageCircle, X, UserRound } from "lucide-react"; // X for close
 import logo from "../assets/logo.png";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { Home, Briefcase, Users, BarChart2, Layers, Mail } from "lucide-react";
+import { Home, Briefcase, Users, BarChart2, Layers, Mail as MailIcon } from "lucide-react";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -12,6 +12,7 @@ const Navbar = () => {
   const [hovered, setHovered] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [formOpen, setFormOpen] = useState(false); // form dropdown state
 
   const menuItems = [
     { name: "About", icon: Home },
@@ -19,23 +20,13 @@ const Navbar = () => {
     { name: "Work", icon: Users },
     { name: "Results", icon: BarChart2 },
     { name: "Brands", icon: Layers },
-    { name: "Contact", icon: Mail },
+    { name: "Contact", icon: MailIcon },
   ];
 
   const menuVariants = {
     hidden: { opacity: 0, scale: 0.95, y: -20 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      transition: { duration: 0.4, when: "beforeChildren", staggerChildren: 0.08, ease: [0.16, 1, 0.3, 1] },
-    },
-    exit: {
-      opacity: 0,
-      scale: 0.95,
-      y: -20,
-      transition: { duration: 0.3, when: "afterChildren", staggerChildren: 0.04, staggerDirection: -1, ease: [0.16, 1, 0.3, 1] },
-    },
+    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.4, when: "beforeChildren", staggerChildren: 0.08, ease: [0.16, 1, 0.3, 1] } },
+    exit: { opacity: 0, scale: 0.95, y: -20, transition: { duration: 0.3, when: "afterChildren", staggerChildren: 0.04, staggerDirection: -1, ease: [0.16, 1, 0.3, 1] } },
   };
 
   const itemVariants = {
@@ -49,6 +40,7 @@ const Navbar = () => {
     if (element) {
       gsap.to(window, { duration: 1.2, scrollTo: { y: element, offsetY: 80 }, ease: "power2.inOut" });
       setMenuOpen(false);
+      setFormOpen(false);
     }
   };
 
@@ -68,17 +60,66 @@ const Navbar = () => {
         {/* Right Side */}
         <div className="flex items-center gap-3 sm:gap-4 relative">
           {/* Get in Touch Button */}
-          <div className="rounded-full border border-[#654AFF]" style={{ width: "150px", height: "50px", padding: "2px" }}>
-            <motion.div
-              className="bg-[#654AFF] w-full h-full rounded-full uncut flex items-center justify-center text-white text-sm sm:text-[17px] font-light cursor-pointer"
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
-              animate={{ scale: hovered ? 0.96 : 1 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
-              onClick={() => handleScroll("Contact")}
-            >
-              Get in Touch
-            </motion.div>
+          <div className="relative">
+            <div className="rounded-full border border-[#654AFF]" style={{ width: "150px", height: "50px", padding: "2px" }}>
+              <motion.div
+                className="bg-[#654AFF] w-full h-full rounded-full uncut flex items-center justify-center text-white text-sm sm:text-[17px] font-light cursor-pointer"
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+                animate={{ scale: hovered ? 0.96 : 1 }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
+                onClick={() => setFormOpen(!formOpen)} // toggle form
+              >
+                Get in Touch
+              </motion.div>
+            </div>
+
+            {/* Form Dropdown */}
+            <AnimatePresence>
+              {formOpen && (
+                <>
+                  {/* Overlay */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.5 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="fixed inset-0 bg-black z-30"
+                    onClick={() => setFormOpen(false)}
+                  />
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute top-full mt-2 right-0 w-92 bg-white rounded-xl shadow-2xl px-5 pb-5 pt-3 z-40"
+                  >
+                    {/* Close Icon */}
+                    <div className="flex justify-end mb-2">
+                      <X className="cursor-pointer text-gray-500" onClick={() => setFormOpen(false)} />
+                    </div>
+
+                    {/* Form Fields */}
+                    <form className="flex flex-col gap-3 uncut">
+                      <div className="flex items-center gap-2 border border-gray-300 rounded-lg p-2">
+                        <UserRound size={18} className="text-gray-500" />
+                        <input type="text" placeholder="Your Name" className="w-full outline-none text-black" />
+                      </div>
+                      <div className="flex items-center gap-2 border border-gray-300 rounded-lg p-2">
+                        <Mail size={18} className="text-gray-500" />
+                        <input type="email" placeholder="Your Email" className="w-full outline-none text-black" />
+                      </div>
+                      <div className="flex items-center gap-2 border border-gray-300 rounded-lg py-2 pr-2 pl-4">
+                        <textarea rows={3} placeholder="Hey there..." className="w-full outline-none text-black resize-none" />
+                      </div>
+                      <button type="submit" className="bg-[#654AFF] text-white py-2 rounded-lg font-medium hover:bg-[#5434d8] transition-all duration-300 cursor-pointer">
+                        Send Message
+                      </button>
+                    </form>
+                  </motion.div>
+                </>
+              )}
+            </AnimatePresence>
           </div>
 
           {/* Plus Icon */}
@@ -88,10 +129,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <motion.div
-              animate={{ rotate: menuOpen ? 45 : 0 }}
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            >
+            <motion.div animate={{ rotate: menuOpen ? 45 : 0 }} transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}>
               {menuOpen ? <Minus size={18} /> : <Plus size={18} />}
             </motion.div>
           </motion.div>
@@ -100,23 +138,20 @@ const Navbar = () => {
           <AnimatePresence>
             {menuOpen && (
               <>
-                {/* Backdrop */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="fixed inset-0 bg-black/50 z-30"
+                  className="fixed inset-0 bg-black/50 z-20"
                   onClick={() => setMenuOpen(false)}
                 />
-
-                {/* Menu */}
                 <motion.div
                   variants={menuVariants}
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  className="absolute top-full right-0 mt-4 w-52 bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden border-2 border-[#654AFF] z-40"
+                  className="absolute top-full right-0 mt-2 w-52 bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden border-2 border-[#654AFF] z-40"
                 >
                   <div className="p-2">
                     {menuItems.map((item, index) => {
@@ -135,15 +170,12 @@ const Navbar = () => {
                             whileHover={{ x: 0 }}
                             transition={{ duration: 0.2 }}
                           >
-                            {/* Hover background */}
                             <motion.div
                               className="absolute inset-0 bg-[#654AFF]/10 rounded-xl"
                               initial={{ opacity: 0, scale: 0.8 }}
                               animate={{ opacity: hoveredItem === index ? 1 : 0, scale: hoveredItem === index ? 1 : 0.8 }}
                               transition={{ duration: 0.3 }}
                             />
-
-                            {/* Icon + Name */}
                             <IconComponent size={18} className="relative z-10" />
                             <span className="relative z-10">{item.name}</span>
                           </motion.div>
@@ -151,14 +183,7 @@ const Navbar = () => {
                       );
                     })}
                   </div>
-
-                  {/* Footer accent */}
-                  <motion.div
-                    className="h-1 bg-[#654AFF]"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 0.4, duration: 0.6 }}
-                  />
+                  <motion.div className="h-1 bg-[#654AFF]" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 0.4, duration: 0.6 }} />
                 </motion.div>
               </>
             )}
