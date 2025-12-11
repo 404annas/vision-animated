@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus, User, Mail, MessageCircle, X, UserRound } from "lucide-react"; // X for close
+import { Plus, Minus, User, Mail, MessageCircle, X, UserRound, UsersRound } from "lucide-react"; // X for close
 import logo from "../assets/logo.png";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -17,7 +17,7 @@ const Navbar = () => {
   const menuItems = [
     { name: "About", icon: Home },
     { name: "Services", icon: Briefcase },
-    { name: "Work", icon: Users },
+    { name: "Work", icon: UsersRound },
     { name: "Results", icon: BarChart2 },
     { name: "Brands", icon: Layers },
     { name: "Contact", icon: MailIcon },
