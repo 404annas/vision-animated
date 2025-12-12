@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus, User, Mail, MessageCircle, X, UserRound, UsersRound } from "lucide-react"; // X for close
+import { Plus, Minus, X, UserRound, Mail, Send } from "lucide-react"; // Imported Send icon
 import logo from "../assets/logo.png";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { Home, Briefcase, Users, BarChart2, Layers, Mail as MailIcon } from "lucide-react";
+import { Home, Briefcase, UsersRound, BarChart2, Layers, Mail as MailIcon } from "lucide-react";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -18,7 +18,7 @@ const Navbar = () => {
     { name: "About", icon: Home },
     { name: "Services", icon: Briefcase },
     { name: "Work", icon: UsersRound },
-    { name: "Results", icon: BarChart2 },
+    { name: "Results", "icon": BarChart2 },
     { name: "Brands", icon: Layers },
     { name: "Contact", icon: MailIcon },
   ];
@@ -44,6 +44,14 @@ const Navbar = () => {
     }
   };
 
+  // useEffect(() => {
+  //   if (formOpen || menuOpen) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "auto";
+  //   }
+  // }, [formOpen, menuOpen]);
+
   return (
     <nav className="bg-[#020202] text-white px-4 sm:px-6 md:px-10 py-4 relative z-50">
       <div className="flex items-center justify-between w-full">
@@ -61,20 +69,23 @@ const Navbar = () => {
         <div className="flex items-center gap-3 sm:gap-4 relative">
           {/* Get in Touch Button */}
           <div className="relative">
-            <div className="rounded-full border border-[#654AFF]" style={{ width: "150px", height: "50px", padding: "2px" }}>
+            <div className="rounded-full border border-[#654AFF]" style={{ width: "150px", height: "50px", padding: "3px" }}>
               <motion.div
                 className="bg-[#654AFF] w-full h-full rounded-full uncut flex items-center justify-center text-white text-sm sm:text-[17px] font-light cursor-pointer"
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 animate={{ scale: hovered ? 0.96 : 1 }}
                 transition={{ duration: 0.2, ease: "easeInOut" }}
-                onClick={() => setFormOpen(!formOpen)} // toggle form
+                onClick={() => {
+                  setFormOpen(!formOpen);
+                  setMenuOpen(false);     // close menu if open
+                }}
               >
                 Get in Touch
               </motion.div>
             </div>
 
-            {/* Form Dropdown */}
+            {/* Form Dropdown with Glassmorphism Effect */}
             <AnimatePresence>
               {formOpen && (
                 <>
@@ -92,27 +103,45 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute top-full mt-2 -right-13 sm:right-0 w-80 sm:w-92 bg-white rounded-xl shadow-2xl px-5 pb-5 pt-3 z-40"
+                    className="absolute top-full mt-2 -right-13 sm:right-0 w-80 sm:w-92 rounded-xl shadow-2xl px-5 py-5 z-40
+                                bg-white/10 backdrop-blur-xl border border-white/20 text-white"
                   >
                     {/* Close Icon */}
-                    <div className="flex justify-end mb-2">
-                      <X className="cursor-pointer text-gray-500" onClick={() => setFormOpen(false)} />
-                    </div>
+                    {/* <div className="flex justify-end mb-2">
+                      <X className="cursor-pointer text-white/80 hover:text-white" onClick={() => setFormOpen(false)} />
+                    </div> */}
 
-                    {/* Form Fields */}
+                    {/* Form Fields - Placeholder text color updated to placeholder-white/80 */}
                     <form className="flex flex-col gap-3 uncut">
-                      <div className="flex items-center gap-2 border border-gray-300 rounded-lg p-2">
-                        <UserRound size={18} className="text-gray-500" />
-                        <input type="text" placeholder="Your Name" className="w-full outline-none text-black" />
+                      <div className="flex items-center gap-2 border border-white/30 rounded-lg p-2 bg-black/10">
+                        <UserRound size={18} className="text-white/70" />
+                        <input
+                          type="text"
+                          placeholder="Your Name"
+                          className="w-full outline-none bg-transparent text-white placeholder-white/80" // UPDATED
+                        />
                       </div>
-                      <div className="flex items-center gap-2 border border-gray-300 rounded-lg p-2">
-                        <Mail size={18} className="text-gray-500" />
-                        <input type="email" placeholder="Your Email" className="w-full outline-none text-black" />
+                      <div className="flex items-center gap-2 border border-white/30 rounded-lg p-2 bg-black/10">
+                        <Mail size={18} className="text-white/70" />
+                        <input
+                          type="email"
+                          placeholder="Your Email"
+                          className="w-full outline-none bg-transparent text-white placeholder-white/80" // UPDATED
+                        />
                       </div>
-                      <div className="flex items-center gap-2 border border-gray-300 rounded-lg py-2 pr-2 pl-4">
-                        <textarea rows={3} placeholder="Hey there..." className="w-full outline-none text-black resize-none" />
+                      <div className="flex items-center gap-2 border border-white/30 rounded-lg py-2 pr-2 pl-4 bg-black/10">
+                        <textarea
+                          rows={3}
+                          placeholder="Hey there..."
+                          className="w-full outline-none bg-transparent text-white resize-none placeholder-white/80" // UPDATED
+                        />
                       </div>
-                      <button type="submit" className="bg-[#654AFF] text-white py-2 rounded-lg font-medium hover:bg-[#5434d8] transition-all duration-300 cursor-pointer">
+                      <button
+                        type="submit"
+                        className="bg-[#654AFF] text-white py-2 rounded-lg font-medium hover:bg-[#5434d8] transition-all duration-300 cursor-pointer
+                                   flex items-center justify-center gap-2" // Added flex, items-center, justify-center, gap-2
+                      >
+                        <Send size={18} /> {/* Added Send icon */}
                         Send Message
                       </button>
                     </form>
@@ -125,7 +154,11 @@ const Navbar = () => {
           {/* Plus Icon */}
           <motion.div
             className="bg-[#654AFF] rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center cursor-pointer z-50"
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => {
+              if (!formOpen) setMenuOpen(!menuOpen);
+              setFormOpen(false);     // close form when menu opens
+            }}
+            style={{ pointerEvents: formOpen ? "none" : "auto" }}   // prevent click when form open
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -133,6 +166,7 @@ const Navbar = () => {
               {menuOpen ? <Minus size={18} /> : <Plus size={18} />}
             </motion.div>
           </motion.div>
+
 
           {/* Dropdown Menu */}
           <AnimatePresence>

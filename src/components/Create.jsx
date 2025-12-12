@@ -1,7 +1,7 @@
 import Marquee from "react-fast-marquee";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, UserRound, Mail } from "lucide-react";
+import { X, UserRound, Mail, Send } from "lucide-react";
 
 // logos
 import logo1 from "../assets/pslLogo.png";
@@ -29,9 +29,10 @@ const Create = () => {
     ];
 
     // disable scroll when popup open
-    useEffect(() => {
-        document.body.style.overflow = formOpen ? "hidden" : "auto";
-    }, [formOpen]);
+    // useEffect(() => {
+    //     // [Urdu/English Comment] Scroll bar ko band karo agar form khula ho (Disable scroll bar if form is open)
+    //     document.body.style.overflow = formOpen ? "hidden" : "auto";
+    // }, [formOpen]);
 
     return (
         <>
@@ -103,68 +104,71 @@ const Create = () => {
                 </div>
             </div>
 
-            {/* POPUP FORM (EXACT ABOUT PAGE FORM) */}
+            {/* POPUP FORM - UPDATED WITH DARK GLASSMORPHISM EFFECT */}
             <AnimatePresence>
                 {formOpen && (
                     <>
-                        {/* Overlay */}
+                        {/* Overlay: Changed to transparent background to allow backdrop-blur to work on main content */}
                         <motion.div
                             initial={{ opacity: 0 }}
-                            animate={{ opacity: 0.5 }}
+                            animate={{ opacity: 0 }} // Keep opacity 0 to see content behind
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="fixed inset-0 bg-black z-30"
+                            className="fixed inset-0 bg-black/0 z-30" // [Urdu/English Comment] Glass effect ke liye overlay ko transparent rakha (Overlay kept transparent for glass effect)
                             onClick={() => setFormOpen(false)}
                         />
 
-                        {/* Actual Form */}
+                        {/* Actual Form: Applied Dark Glass classes */}
                         <motion.div
                             initial={{ opacity: 0, y: -50, scale: 0.95 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: -50, scale: 0.95 }}
                             transition={{ duration: 0.3 }}
                             className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] 
-    max-w-md bg-white rounded-xl shadow-2xl px-5 pb-5 pt-3 z-40"
+                            max-w-md rounded-xl shadow-2xl px-5 py-6 z-40
+                            **bg-white/10 backdrop-blur-xl border border-white/20 text-white**" // [Urdu/English Comment] Glass effect classes lagayi (Applied glass effect classes)
                         >
                             {/* Close Button */}
-                            <div className="flex justify-end mb-2">
+                            {/* <div className="flex justify-end mb-2">
                                 <X
-                                    className="cursor-pointer text-gray-500"
+                                    className="cursor-pointer text-white/80 hover:text-white"
                                     onClick={() => setFormOpen(false)}
                                 />
-                            </div>
+                            </div> */}
 
-                            {/* FORM CONTENT (COPIED FROM ABOUT PAGE) */}
+                            {/* FORM CONTENT (STYLES UPDATED FOR DARK GLASS THEME) */}
                             <form className="flex flex-col gap-3 uncut">
-                                <div className="flex items-center gap-2 border border-gray-300 rounded-lg p-2">
-                                    <UserRound size={18} className="text-gray-500" />
+                                <div className="flex items-center gap-2 border border-white/30 rounded-lg p-2 bg-black/10">
+                                    <UserRound size={18} className="text-white/70" />
                                     <input
                                         type="text"
                                         placeholder="Your Name"
-                                        className="w-full outline-none text-black"
+                                        className="w-full outline-none bg-transparent text-white placeholder-white/80" // [Urdu/English Comment] Placeholder aur text ko white kiya (Made placeholder and text white)
                                     />
                                 </div>
 
-                                <div className="flex items-center gap-2 border border-gray-300 rounded-lg p-2">
-                                    <Mail size={18} className="text-gray-500" />
+                                <div className="flex items-center gap-2 border border-white/30 rounded-lg p-2 bg-black/10">
+                                    <Mail size={18} className="text-white/70" />
                                     <input
                                         type="email"
                                         placeholder="Your Email"
-                                        className="w-full outline-none text-black"
+                                        className="w-full outline-none bg-transparent text-white placeholder-white/80"
                                     />
                                 </div>
 
-                                <div className="flex items-center gap-2 border border-gray-300 rounded-lg py-2 pr-2 pl-4">
+                                <div className="flex items-center gap-2 border border-white/30 rounded-lg py-2 pr-2 pl-4 bg-black/10">
                                     <textarea
                                         placeholder="Hey There..."
-                                        className="w-full outline-none text-black resize-none"
+                                        className="w-full outline-none bg-transparent text-white resize-none placeholder-white/80"
                                     />
                                 </div>
 
                                 <button
                                     type="submit"
-                                    className="bg-[#654AFF] text-white py-2 rounded-lg font-medium hover:bg-[#5434d8] transition-all duration-300 cursor-pointer"
+                                    className="bg-[#654AFF] text-white py-2 rounded-lg font-medium hover:bg-[#5434d8] transition-all duration-300 cursor-pointer
+                                   flex items-center justify-center gap-2" // Added flex, items-center, justify-center, gap-2
                                 >
+                                    <Send size={18} /> {/* Added Send icon */}
                                     Send Message
                                 </button>
                             </form>

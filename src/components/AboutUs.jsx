@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { User, Mail, MessageCircle, X, UserRound } from "lucide-react";
+import { User, Mail, MessageCircle, X, UserRound, Send } from "lucide-react";
 import video1 from "../assets/video1.mp4";
 import video2 from "../assets/video2.mp4";
 
@@ -17,13 +17,13 @@ const AboutUs = () => {
   const textRef = useRef(null);
 
   // Disable scrolling when popup is open
-  useEffect(() => {
-    if (formOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [formOpen]);
+  // useEffect(() => {
+  //   if (formOpen) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "auto";
+  //   }
+  // }, [formOpen]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -66,6 +66,7 @@ const AboutUs = () => {
         ref={sectionRef}
         className="relative h-screen bg-black text-white flex items-center justify-center overflow-hidden"
         style={{ backfaceVisibility: "hidden" }}
+        id="about" // Added ID for navigation if needed
       >
         {/* Videos */}
         <video
@@ -102,7 +103,7 @@ const AboutUs = () => {
 
           {/* Get in Touch Button */}
           <div className="flex justify-center mt-12">
-            <div className="rounded-full border border-[#654AFF]" style={{ width: "160px", height: "50px", padding: "3px" }}>
+            <div className="rounded-full border border-[#654AFF]" style={{ width: "160px", height: "50px", padding: "4px" }}>
               <motion.div
                 className="bg-[#654AFF] w-full h-full rounded-full flex items-center justify-center uncut text-white text-sm sm:text-[17px] font-light overflow-hidden cursor-pointer"
                 onMouseEnter={() => setHovered(true)}
@@ -118,48 +119,66 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Popup Form */}
+      {/* Popup Form with Dark Glassmorphism Effect */}
       <AnimatePresence>
         {formOpen && (
           <>
-            {/* Overlay */}
+            {/* Overlay: Changed to transparent to allow blur to see videos behind */}
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
+              animate={{ opacity: 0 }} // Changed to 0 so videos are visible for backdrop-blur
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black z-30"
+              className="fixed inset-0 bg-black/0 z-30" // Completely transparent overlay
               onClick={() => setFormOpen(false)}
             />
 
-            {/* Form Container */}
+            {/* Form Container: Applied Glassmorphism styling */}
             <motion.div
               initial={{ opacity: 0, y: -50, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -50, scale: 0.95 }}
               transition={{ duration: 0.3 }}
               className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] 
-    max-w-md  bg-white rounded-xl shadow-2xl px-5 pb-5 pt-3 z-40"
+              max-w-lg rounded-xl shadow-2xl px-5 py-6 z-40
+              **bg-white/10 backdrop-blur-xl border border-white/20 text-white**" // Dark Glass classes
             >
               {/* Close */}
-              <div className="flex justify-end mb-2">
-                <X className="cursor-pointer text-gray-500" onClick={() => setFormOpen(false)} />
-              </div>
+              {/* <div className="flex justify-end mb-2">
+                <X className="cursor-pointer text-white/80 hover:text-white" onClick={() => setFormOpen(false)} />
+              </div> */}
 
-              {/* Form */}
+              {/* Form - Styling updated for dark glass theme */}
               <form className="flex flex-col gap-3 uncut">
-                <div className="flex items-center gap-2 border border-gray-300 rounded-lg p-2">
-                  <UserRound size={18} className="text-gray-500" />
-                  <input type="text" placeholder="Your Name" className="w-full outline-none text-black" />
+                <div className="flex items-center gap-2 border border-white/30 rounded-lg p-2 bg-black/10">
+                  <UserRound size={18} className="text-white/70" />
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    className="w-full outline-none bg-transparent text-white placeholder-white/80"
+                  />
                 </div>
-                <div className="flex items-center gap-2 border border-gray-300 rounded-lg p-2">
-                  <Mail size={18} className="text-gray-500" />
-                  <input type="email" placeholder="Your Email" className="w-full outline-none text-black" />
+                <div className="flex items-center gap-2 border border-white/30 rounded-lg p-2 bg-black/10">
+                  <Mail size={18} className="text-white/70" />
+                  <input
+                    type="email"
+                    placeholder="Your Email"
+                    className="w-full outline-none bg-transparent text-white placeholder-white/80"
+                  />
                 </div>
-                <div className="flex items-center gap-2 border border-gray-300 rounded-lg py-2 pr-2 pl-4">
-                  <textarea placeholder="Hey There..." className="w-full outline-none text-black resize-none" />
+                <div className="flex items-center gap-2 border border-white/30 rounded-lg py-2 pr-2 pl-4 bg-black/10">
+                  <textarea
+                    rows={3}
+                    placeholder="Hey There..."
+                    className="w-full outline-none bg-transparent text-white resize-none placeholder-white/80"
+                  />
                 </div>
-                <button type="submit" className="bg-[#654AFF] text-white py-2 rounded-lg font-medium hover:bg-[#5434d8] transition-all duration-300 cursor-pointer">
+                <button
+                  type="submit"
+                  className="bg-[#654AFF] text-white py-2 rounded-lg font-medium hover:bg-[#5434d8] transition-all duration-300 cursor-pointer
+                                   flex items-center justify-center gap-2" // Added flex, items-center, justify-center, gap-2
+                >
+                  <Send size={18} /> {/* Added Send icon */}
                   Send Message
                 </button>
               </form>

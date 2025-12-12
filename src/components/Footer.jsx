@@ -46,6 +46,12 @@ const Footer = () => {
 
       {/* Large Background Text */}
       <div className="relative bg-[#020202] overflow-hidden h-12 sm:h-32 md:h-44">
+        {/* Developed by Techxudo: Placed absolutely at the bottom left corner */}
+        {/* [Urdu/English Comment] Techxudo text ko absolute position dekar left bottom mein rakha (Set Techxudo text to absolute position in the left bottom) */}
+        <p className="absolute bottom-4 left-2 sm:left-4 md:left-6 text-sm text-[#9C979F] z-20 uncut">
+          Developed by <a href="https://techxudo.com/" className="text-[#654AFF]">Techxudo</a>
+        </p>
+
         <h1 className="mor text-[#0F0F0F] leading-none text-center text-[80px] sm:text-[160px] md:text-[220px] lg:text-[280px] basement px-0 uppercase py-0">
           Fepo
         </h1>
