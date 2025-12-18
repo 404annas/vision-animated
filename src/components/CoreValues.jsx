@@ -106,7 +106,7 @@ const CoreValues = () => {
     >
       {/* Heading */}
       <div
-        className="flex flex-col items-center justify-center text-center pt-10">
+        className="flex flex-col items-center justify-center text-center pt-0 sm:pt-10">
         <h1 id="services" className="font-basement text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase">
           What
         </h1>
