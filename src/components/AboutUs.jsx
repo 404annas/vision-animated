@@ -75,7 +75,7 @@ const AboutUs = () => {
           muted
           loop
           playsInline
-          className="absolute w-[200px] md:w-[400px] h-[300px] md:h-[350px] object-cover rounded-3xl shadow-2xl z-20"
+          className="absolute w-[200px] md:w-[400px] h-[200px] md:h-[350px] object-cover rounded-3xl shadow-2xl z-20"
           style={{ left: '50%', top: '50%', transform: 'translate3d(-50%, -50%, 0)', willChange: 'transform' }}
         />
         <video
@@ -85,7 +85,7 @@ const AboutUs = () => {
           muted
           loop
           playsInline
-          className="absolute w-[200px] md:w-[400px] h-[300px] md:h-[350px] object-cover rounded-3xl shadow-2xl z-20"
+          className="absolute w-[200px] md:w-[400px] h-[200px] md:h-[350px] object-cover rounded-3xl shadow-2xl z-20"
           style={{ left: '50%', top: '50%', transform: 'translate3d(-50%, -50%, 0)', willChange: 'transform' }}
         />
 

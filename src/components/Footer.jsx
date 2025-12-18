@@ -33,7 +33,7 @@ const Footer = () => {
         <div id="contact" className="flex items-center flex-col gap-6">
           <Link to={"/"} onClick={() => window.scrollTo(0, 0)}>
             <img
-              className="w-16 sm:w-24 cursor-pointer hover:opacity-80 transition-all duration-300"
+              className="w-20 sm:w-24 cursor-pointer hover:opacity-80 transition-all duration-300"
               loading="lazy"
               src={logo}
               alt="Logo"
@@ -44,7 +44,7 @@ const Footer = () => {
             Crafting visuals and compelling stories for brands that move the world.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 md:gap-16 text-[#9C979F] font-uncut pt-8">
+          <div className="grid grid-cols-2 sm:grid-cols-6 items-center justify-center gap-6 sm:gap-10 md:gap-16 text-[#9C979F] font-uncut pt-8">
             <p onClick={() => handleScroll("home")} className="cursor-pointer hover:text-white transition-all duration-300">Home</p>
             <p onClick={() => handleScroll("about")} className="cursor-pointer hover:text-white transition-all duration-300">About</p>
             <p onClick={() => handleScroll("services")} className="cursor-pointer hover:text-white transition-all duration-300">Services</p>
@@ -52,6 +52,8 @@ const Footer = () => {
             <p onClick={() => handleScroll("results")} className="cursor-pointer hover:text-white transition-all duration-300">Results</p>
             <p onClick={() => handleScroll("brands")} className="cursor-pointer hover:text-white transition-all duration-300">Brands</p>
           </div>
+
+          <p className="font-uncut sm:hidden block pt-4">Developed by <a href="https://techxudo.com/" target="_blank" className="text-[#654AFF]">Techxudo</a></p>
         </div>
       </footer >
 
