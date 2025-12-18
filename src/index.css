@@ -1,17 +1,28 @@
-@import url(https://db.onlinewebfonts.com/c/67d4a5eec5fec4085dbd01cb3f96ff7c?family=Uncut+Sans);
-@import url(https://db.onlinewebfonts.com/c/83569c5d01a8f3991872544736650ae2?family=Basement+Grotesque+Roman);
+/* @import url(https://db.onlinewebfonts.com/c/67d4a5eec5fec4085dbd01cb3f96ff7c?family=Uncut+Sans); */
+/* @import url(https://db.onlinewebfonts.com/c/83569c5d01a8f3991872544736650ae2?family=Basement+Grotesque+Roman); */
 @import "tailwindcss";
 
 html {
     scroll-behavior: smooth;
 }
 
-.uncut {
-    font-family: "Uncut Sans";
+@theme {
+    --font-uncut: "Uncut Sans", sans-serif;
+    --font-basement: "Basement Grotesque", sans-serif;
 }
 
-.basement {
-    font-family: "Basement Grotesque Roman";
+@font-face {
+    font-family: "Uncut Sans";
+    src: url("/fonts/Uncut-Sans-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Basement Grotesque";
+    src: url("/fonts/BasementGrotesque-Black_v1.202.otf") format("opentype");
+    font-weight: 900;
+    font-style: normal;
 }
 
 html.lenis,

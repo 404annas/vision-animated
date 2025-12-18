@@ -71,7 +71,7 @@ const Navbar = () => {
           <div className="relative">
             <div className="rounded-full border border-[#654AFF]" style={{ width: "150px", height: "50px", padding: "3px" }}>
               <motion.div
-                className="bg-[#654AFF] w-full h-full rounded-full uncut flex items-center justify-center text-white text-sm sm:text-[17px] font-light cursor-pointer"
+                className="bg-[#654AFF] w-full h-full rounded-full font-uncut flex items-center justify-center text-white text-sm sm:text-[17px] font-light cursor-pointer"
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 animate={{ scale: hovered ? 0.96 : 1 }}
@@ -112,7 +112,7 @@ const Navbar = () => {
                     </div> */}
 
                     {/* Form Fields - Placeholder text color updated to placeholder-white/80 */}
-                    <form className="flex flex-col gap-3 uncut">
+                    <form className="flex flex-col gap-3 font-uncut">
                       <div className="flex items-center gap-2 border border-white/30 rounded-lg p-2 bg-black/10">
                         <UserRound size={18} className="text-white/70" />
                         <input
@@ -199,7 +199,7 @@ const Navbar = () => {
                           onMouseLeave={() => setHoveredItem(null)}
                         >
                           <motion.div
-                            className="px-5 py-4 flex items-center uncut gap-2 cursor-pointer text-black text-xs sm:text-[17px] font-light rounded-xl relative overflow-hidden"
+                            className="px-5 py-4 flex items-center font-uncut gap-2 cursor-pointer text-black text-xs sm:text-[17px] font-bold rounded-xl relative overflow-hidden"
                             onClick={() => handleScroll(item.name)}
                             whileHover={{ x: 0 }}
                             transition={{ duration: 0.2 }}

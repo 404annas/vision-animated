@@ -91,10 +91,10 @@ const Testimonials = () => {
         <div className="bg-[#020202] text-white pt-10 sm:pt-10 pb-20 px-4 sm:px-8 md:px-10">
             {/* Section Title */}
             <div id="results" className="flex flex-col items-center justify-center mb-10 md:mb-12">
-                <h1 className="basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase text-center">
+                <h1 className="font-basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase text-center">
                     Real
                 </h1>
-                <h1 className="basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase text-center">
+                <h1 className="font-basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase text-center">
                     Results
                 </h1>
             </div>
@@ -111,10 +111,10 @@ const Testimonials = () => {
                             alt={t.name}
                             className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full border-2 border-[#202430] shadow-md"
                         />
-                        <h3 className="mt-4 text-lg sm:text-xl md:text-2xl basement">
+                        <h3 className="mt-4 text-lg sm:text-xl md:text-2xl font-basement">
                             {t.name}
                         </h3>
-                        <p className="mt-3 text-sm sm:text-base text-gray-300 uncut max-w-sm sm:max-w-md">
+                        <p className="mt-3 text-sm sm:text-base text-gray-300 font-uncut max-w-sm sm:max-w-md">
                             "{t.text}"
                         </p>
                     </div>

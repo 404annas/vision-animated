@@ -47,15 +47,15 @@ const Create = () => {
                 >
                     <h1
                         id="brands"
-                        className="basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl uppercase"
+                        className="font-basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl uppercase"
                     >
                         We Work with
                     </h1>
 
-                    <p className="uncut text-[#AEAEAE] text-base sm:text-lg md:text-xl mt-4">
+                    <p className="font-uncut text-[#AEAEAE] text-base sm:text-lg md:text-xl mt-4">
                         We’re here to turn your vision into powerful video.
                     </p>
-                    <p className="uncut text-[#AEAEAE] text-base sm:text-lg md:text-xl">
+                    <p className="font-uncut text-[#AEAEAE] text-base sm:text-lg md:text-xl">
                         Reach out, and let’s create something worth watching.
                     </p>
 
@@ -79,7 +79,7 @@ const Create = () => {
                             style={{ width: "150px", height: "52px", padding: "2px" }}
                         >
                             <motion.div
-                                className="bg-[#654AFF] w-full h-full rounded-full flex items-center justify-center uncut text-white text-sm sm:text-base md:text-lg font-light cursor-pointer"
+                                className="bg-[#654AFF] w-full h-full rounded-full flex items-center justify-center font-uncut text-white text-sm sm:text-base md:text-lg font-semibold cursor-pointer"
                                 onMouseEnter={() => setHovered(true)}
                                 onMouseLeave={() => setHovered(false)}
                                 onClick={() => setFormOpen(true)}
@@ -137,7 +137,7 @@ const Create = () => {
                             </div> */}
 
                             {/* FORM CONTENT (STYLES UPDATED FOR DARK GLASS THEME) */}
-                            <form className="flex flex-col gap-3 uncut">
+                            <form className="flex flex-col gap-3 font-uncut">
                                 <div className="flex items-center gap-2 border border-white/30 rounded-lg p-2 bg-black/10">
                                     <UserRound size={18} className="text-white/70" />
                                     <input

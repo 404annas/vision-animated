@@ -138,13 +138,13 @@ const HeroAno = () => {
 
             {/* TEXT */}
             <div className="relative z-10 flex flex-col items-center pt-80 sm:pt-40">
-                <h1 className="basement uppercase text-white text-[18vw] sm:text-[20vw] leading-none">
+                <h1 className="font-basement uppercase text-white text-[18vw] sm:text-[20vw] leading-none">
                     Fepo
                 </h1>
             </div>
 
             <div className="flex items-center justify-center gap-2 mt-4 text-gray-500 relative z-10">
-                <p className="uncut">Scroll Down</p>
+                <p className="font-uncut">Scroll Down</p>
                 <CornerRightDown size={16} />
             </div>
         </div>

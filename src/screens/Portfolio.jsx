@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion"
 
 import hero1 from "../assets/hero1.jpg";
@@ -56,10 +55,10 @@ const Portfolio = () => {
         <div className="bg-[#020202] text-white  pt-16 px-6 md:px-12">
             {/* Heading */}
             <div className="text-center mb-12">
-                <h1 className="text-4xl md:text-5xl basement uppercase tracking-wide">
+                <h1 className="text-4xl md:text-5xl font-basement uppercase tracking-wide">
                     Portfolio
                 </h1>
-                <p className="text-gray-400 mt-3 text-lg uncut">
+                <p className="text-gray-400 mt-3 text-lg font-uncut">
                     A collection of work
                 </p>
             </div>
@@ -82,7 +81,7 @@ const Portfolio = () => {
 
                         {/* Title */}
                         <div className="p-4 text-center">
-                            <h2 className="text-lg basement uppercase">
+                            <h2 className="text-lg font-basement uppercase">
                                 {item.title}
                             </h2>
                         </div>

@@ -13,10 +13,10 @@ const CaseStudies = () => {
         <div id="work" className="bg-black text-white px-4 pb-10 relative">
             {/* Title */}
             <div className="flex flex-col items-center justify-center mb-10 md:mb-16">
-                <h1 className="basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase text-center">
+                <h1 className="font-basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase text-center">
                     Our
                 </h1>
-                <h1 className="basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase text-center">
+                <h1 className="font-basement text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase text-center">
                     Work
                 </h1>
             </div>
@@ -40,7 +40,7 @@ const CaseStudies = () => {
                         className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover"
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#7BC6D6] uppercase basement">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#7BC6D6] uppercase font-basement">
                             Husn-e-eid
                         </h2>
                     </div>
@@ -63,7 +63,7 @@ const CaseStudies = () => {
                         className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover"
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#D88281] uppercase basement">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#D88281] uppercase font-basement">
                             Velo
                         </h2>
                     </div>
@@ -86,7 +86,7 @@ const CaseStudies = () => {
                         className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover"
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#3C4D58] uppercase basement">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#3C4D58] uppercase font-basement">
                             Why not
                         </h2>
                     </div>
@@ -109,7 +109,7 @@ const CaseStudies = () => {
                         className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover"
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#CACB8D] uppercase basement">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#CACB8D] uppercase font-basement">
                             Peechay hut
                         </h2>
                     </div>
@@ -127,7 +127,7 @@ const CaseStudies = () => {
                 >
                     {/* Inner scaling content */}
                     <motion.div
-                        className="bg-[#654AFF] w-full h-full rounded-full flex items-center justify-center uncut text-white text-sm sm:text-[17px] font-light overflow-hidden cursor-pointer"
+                        className="bg-[#654AFF] w-full h-full rounded-full flex items-center justify-center font-uncut text-white text-sm sm:text-[17px] font-semibold overflow-hidden cursor-pointer"
                         onMouseEnter={() => setHovered(true)}
                         onMouseLeave={() => setHovered(false)}
                         animate={{ scale: hovered ? 0.96 : 1 }}

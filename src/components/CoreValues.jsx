@@ -107,10 +107,10 @@ const CoreValues = () => {
       {/* Heading */}
       <div
         className="flex flex-col items-center justify-center text-center pt-10">
-        <h1 id="services" className="basement text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase">
+        <h1 id="services" className="font-basement text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase">
           What
         </h1>
-        <h1 className="basement text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase">
+        <h1 className="font-basement text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-none uppercase">
           We Do?
         </h1>
       </div>
@@ -136,14 +136,14 @@ const CoreValues = () => {
               alt={`Icon ${index + 1}`}
             />
             <div className="flex flex-col gap-1">
-              <h1 className="text-2xl sm:text-3xl leading-6 text-white basement uppercase">
+              <h1 className="text-2xl sm:text-3xl leading-6 text-white font-basement uppercase">
                 {card.title1}
               </h1>
-              <h1 className="text-2xl sm:text-3xl text-white basement uppercase">
+              <h1 className="text-2xl sm:text-3xl text-white font-basement uppercase">
                 {card.title2}
               </h1>
             </div>
-            <p className="uncut text-[#B0B0B0] text-sm sm:text-base leading-relaxed">
+            <p className="font-uncut text-[#B0B0B0] text-sm sm:text-base leading-relaxed">
               {card.desc}
             </p>
           </div>

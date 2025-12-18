@@ -92,10 +92,10 @@ const AboutUs = () => {
 
         {/* Text */}
         <div ref={textRef} className="absolute text-center px-4 z-10 w-full">
-          <h1 className="basement text-5xl sm:text-7xl md:text-[9rem] leading-[0.9] uppercase text-center font-bold tracking-tighter">
+          <h1 className="font-basement text-5xl sm:text-7xl md:text-[9rem] leading-[0.9] uppercase text-center font-bold tracking-tighter">
             Who<br />We Are?
           </h1>
-          <p className="uncut text-[#B0B0B0] pt-8 sm:pt-12 text-sm sm:text-base md:text-xl leading-relaxed max-w-3xl mx-auto font-light">
+          <p className="font-uncut text-[#B0B0B0] pt-8 sm:pt-12 text-sm sm:text-base md:text-xl leading-relaxed max-w-3xl mx-auto font-light">
             We craft visually striking stories that move people. Whether it’s a
             high-energy commercial, a cinematic brand film, or sleek social
             content, we bring ideas to life.
@@ -105,7 +105,7 @@ const AboutUs = () => {
           <div className="flex justify-center mt-12">
             <div className="rounded-full border border-[#654AFF]" style={{ width: "160px", height: "50px", padding: "4px" }}>
               <motion.div
-                className="bg-[#654AFF] w-full h-full rounded-full flex items-center justify-center uncut text-white text-sm sm:text-[17px] font-light overflow-hidden cursor-pointer"
+                className="bg-[#654AFF] w-full h-full rounded-full flex items-center justify-center font-uncut text-white text-sm sm:text-[17px] font-semibold overflow-hidden cursor-pointer"
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 animate={{ scale: hovered ? 0.96 : 1 }}
@@ -149,7 +149,7 @@ const AboutUs = () => {
               </div> */}
 
               {/* Form - Styling updated for dark glass theme */}
-              <form className="flex flex-col gap-3 uncut">
+              <form className="flex flex-col gap-3 font-uncut ">
                 <div className="flex items-center gap-2 border border-white/30 rounded-lg p-2 bg-black/10">
                   <UserRound size={18} className="text-white/70" />
                   <input
