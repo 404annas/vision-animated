@@ -41,57 +41,83 @@ const CoreValues = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const targets = cardRefs.current.filter((el) => el !== null);
+      const targets = cardRefs.current.filter(Boolean);
 
-      gsap.fromTo(
-        targets,
-        {
-          // --- BOTTLE CAP SPIN LOGIC ---
-
-          // 1. Position (Movement):
-          // Still coming from sides (Cross effect)
-          x: (index) => (index < 2 ? 600 : -600),
-          // Falling from above
-          y: -500,
-          // Starting further back in Z-space (Depth)
-          z: -500,
-
-          // 2. The Spin (3D Rotation):
-          // rotationY is the "Bottle Cap" spin (spinning around vertical axis)
-          // We do 720 degrees (2 full spins) so it looks fast and circular
-          rotationY: (index) => (index < 2 ? 720 : -720),
-
-          // Slight tilt so it doesn't look like a flat paper
-          rotationX: 45,
-          // Slight clock-tilt for style
-          rotation: (index) => (index < 2 ? 15 : -15),
-
-          scale: 0.3,           // Start small
-          opacity: 0,
-          filter: "blur(20px)", // Motion blur
+      ScrollTrigger.matchMedia({
+        // 📱 Mobile (below sm ~ 640px)
+        "(max-width: 639px)": () => {
+          gsap.fromTo(
+            targets,
+            {
+              x: (i) => (i < 2 ? 600 : -600),
+              y: -500,
+              z: -500,
+              rotationY: (i) => (i < 2 ? 720 : -720),
+              rotationX: 45,
+              rotation: (i) => (i < 2 ? 15 : -15),
+              scale: 0.3,
+              opacity: 0,
+              filter: "blur(20px)",
+            },
+            {
+              x: 0,
+              y: 0,
+              z: 0,
+              rotationY: 0,
+              rotationX: 0,
+              rotation: 0,
+              scale: 1,
+              opacity: 1,
+              filter: "blur(0px)",
+              stagger: 0.15,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: containerRef.current,
+                start: "-40%", // 👈 MOBILE START
+                end: "25%",
+                scrub: 5,
+              },
+            }
+          );
         },
-        {
-          x: 0,
-          y: 0,
-          z: 0,
-          rotationY: 0,        // Finish facing forward
-          rotationX: 0,
-          rotation: 0,
-          scale: 1,
-          opacity: 1,
-          filter: "blur(0px)",
 
-          stagger: 0.15,
-          ease: "power2.out",
-
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "-20%",  // Starts slightly earlier
-            end: "25%",
-            scrub: 5,        // Slightly heavier scrub for the spin weight
-          },
-        }
-      );
+        // 💻 Tablet & Desktop (sm and above)
+        "(min-width: 640px)": () => {
+          gsap.fromTo(
+            targets,
+            {
+              x: (i) => (i < 2 ? 600 : -600),
+              y: -500,
+              z: -500,
+              rotationY: (i) => (i < 2 ? 720 : -720),
+              rotationX: 45,
+              rotation: (i) => (i < 2 ? 15 : -15),
+              scale: 0.3,
+              opacity: 0,
+              filter: "blur(20px)",
+            },
+            {
+              x: 0,
+              y: 0,
+              z: 0,
+              rotationY: 0,
+              rotationX: 0,
+              rotation: 0,
+              scale: 1,
+              opacity: 1,
+              filter: "blur(0px)",
+              stagger: 0.15,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: containerRef.current,
+                start: "-20%", // 👈 DESKTOP START
+                end: "25%",
+                scrub: 5,
+              },
+            }
+          );
+        },
+      });
     }, containerRef);
 
     return () => ctx.revert();
