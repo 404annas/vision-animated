@@ -79,7 +79,6 @@ const Portfolio = () => {
                             />
                         </div>
 
-                        {/* Title */}
                         <div className="p-4 text-center">
                             <h2 className="text-lg font-basement uppercase">
                                 {item.title}
