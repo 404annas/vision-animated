@@ -31,7 +31,6 @@ function App() {
       <ScrollManager />
       <Navbar />
 
-      {/* LEFT SIDE FLOATING BUTTONS */}
       <FloatingCTA />
 
       <Routes>

@@ -11,10 +11,8 @@ const videos = [heroVideo1, heroVideo3, heroVideo4];
 const NUM_ITEMS = videos.length;
 const DEGREE_STEP = 360 / NUM_ITEMS;
 
-// CONFIG
 const SPEED_FACTOR = 0.2;
 
-// RADIUS per breakpoint
 const RADII = {
     xs: 100,   // <480
     sm: 130,   // 480-639
