@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus, X, UserRound, Mail, Send } from "lucide-react"; // Imported Send icon
-import logo from "../assets/logo.png";
+import logo from "../assets/fepoLogo3.png";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { Home, Briefcase, UsersRound, BarChart2, Layers, Mail as MailIcon } from "lucide-react";
@@ -57,7 +57,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between w-full">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <img className="w-10 sm:w-14 md:w-16" src={logo} alt="Logo" loading="lazy" />
+          <img className="w-10 sm:w-14 md:w-20" src={logo} alt="Logo" loading="lazy" />
           <motion.p
             className="bg-[#FF1F1F] w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full"
             animate={{ opacity: [1, 0.3, 1] }}
