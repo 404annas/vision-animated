@@ -64,7 +64,7 @@ const AboutUs = () => {
     <div className="bg-black w-full relative">
       <section
         ref={sectionRef}
-        className="relative h-screen -mt-80 sm:-mt-0 bg-black text-white flex items-center justify-center overflow-hidden"
+        className="relative h-screen -mt-40 sm:-mt-0 bg-black text-white flex items-center justify-center overflow-hidden"
         style={{ backfaceVisibility: "hidden" }}
       >
         {/* Videos */}
