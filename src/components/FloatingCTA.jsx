@@ -1,14 +1,11 @@
-import React from "react";
 import { Instagram, Mail } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa"; // Imported FaWhatsapp icon
 
 const FloatingCTA = () => {
-    // [Urdu/English Comment] Phone number jisko wa.me link mein use karna hai. (Phone number to be used in the wa.me link.)
     const phoneNumber = "923338805362"; // Number without +, spaces, or dashes
 
     return (
         <div
-            // [Urdu/English Comment] CTA buttons ko neeche daayein kone mein fix kiya (Fixed CTA buttons to the bottom right corner)
             className="fixed bottom-4 right-4 z-50 flex flex-col gap-2" // Changed gap to gap-3 for better spacing
             style={{ pointerEvents: "auto" }}
         >

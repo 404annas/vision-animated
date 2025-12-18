@@ -20,7 +20,6 @@ const RADII = {
     tab: 200,  // 768-1023
 };
 
-// IMAGE SIZES per breakpoint
 const IMAGE_SIZES = {
     xs: { width: 100, height: 80 },   // very small phones
     sm: { width: 150, height: 95 },   // normal phones
