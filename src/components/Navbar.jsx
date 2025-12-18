@@ -63,7 +63,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between w-full">
         {/* Logo */}
         <Link to={"/"} className="flex items-center gap-2">
-          <img className="w-10 sm:w-14 md:w-20" src={logo} alt="Logo" loading="lazy" />
+          <img className="w-14 sm:w-16 md:w-20" src={logo} alt="Logo" loading="lazy" />
         </Link>
 
         {/* Right Side */}

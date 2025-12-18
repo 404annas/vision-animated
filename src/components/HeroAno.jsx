@@ -108,11 +108,11 @@ const HeroAno = () => {
     }, [radius]);
 
     return (
-        <div className="lg:hidden bg-[#020202] px-4 py-10 relative h-[85vh] overflow-hidden">
+        <div className="lg:hidden bg-[#020202] px-4 pb-10 relative h-[85vh] overflow-hidden">
 
             {/* CAROUSEL */}
             <div
-                className="absolute inset-0 flex items-center justify-center z-20 -mt-40"
+                className="absolute inset-0 flex items-center justify-center z-20 -mt-60"
                 style={{ transformStyle: "preserve-3d" }}
             >
                 {videos.map((video, i) => (
