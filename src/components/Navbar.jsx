@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus, X, UserRound, Mail, Send, Phone } from "lucide-react";
+import { Plus, Minus, X, UserRound, Mail, Send, Phone, Contact2 } from "lucide-react";
 import logo from "../assets/fepoLogo3.png";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -82,7 +82,7 @@ const Navbar = () => {
                   setMenuOpen(false);
                 }}
               >
-                <Phone size={18} />
+                <Contact2 size={18} />
                 <p>Get in Touch</p>
               </motion.div>
             </div>
