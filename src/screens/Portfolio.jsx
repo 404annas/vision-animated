@@ -70,7 +70,6 @@ const Portfolio = () => {
                         key={index}
                         className="group bg-[#1a1a1a] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300"
                     >
-                        {/* Image */}
                         <div className="relative w-full h-64 overflow-hidden">
                             <img
                                 src={item.src}
