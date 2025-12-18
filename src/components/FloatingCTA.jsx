@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail } from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa"; // Imported FaWhatsapp icon
 
 const FloatingCTA = () => {
@@ -12,6 +12,22 @@ const FloatingCTA = () => {
             className="fixed bottom-4 right-4 z-50 flex flex-col gap-2" // Changed gap to gap-3 for better spacing
             style={{ pointerEvents: "auto" }}
         >
+            <div className="flex items-center justify-center gap-4 sm:gap-6 mt-8">
+                <div className="footer-item bg-[#020202] border border-[#4D4944] hover:border-[#67635E] text-white p-3.5 rounded-full cursor-pointer">
+                    <span>
+                        <a href="https://www.instagram.com/f_e_p_o_/">
+                            <Instagram size={20} />
+                        </a>
+                    </span>
+
+                    <span>
+                        <a href="https://www.instagram.com/f_e_p_o_/">
+                            <Instagram size={20} />
+                        </a>
+                    </span>
+                </div>
+            </div>
+
             {/* MAIL BUTTON (Email button) */}
             <a
                 href="mailto:yourmail@gmail.com"

@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Portfolio from './screens/Portfolio';
 import FloatingCTA from './components/FloatingCTA';
+import ScrollManager from './components/ScrollManager';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollManager />
       <Navbar />
 
       {/* LEFT SIDE FLOATING BUTTONS */}

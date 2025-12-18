@@ -20,9 +20,9 @@
 }
 
 .footer-item:hover span:first-child {
-    transform: translateY(-160%);
+    transform: translateY(-180%);
 }
 
 .footer-item:hover span:last-child {
-    transform: translateY(-160%);
+    transform: translateY(-175%);
 }

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus, X, UserRound, Mail, Send } from "lucide-react"; // Imported Send icon
+import { Plus, Minus, X, UserRound, Mail, Send, Phone } from "lucide-react";
 import logo from "../assets/fepoLogo3.png";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { Home, Briefcase, UsersRound, BarChart2, Layers, Mail as MailIcon } from "lucide-react";
+import { Home, Briefcase, UsersRound, BarChart2, Layers } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -12,15 +13,18 @@ const Navbar = () => {
   const [hovered, setHovered] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
-  const [formOpen, setFormOpen] = useState(false); // form dropdown state
+  const [formOpen, setFormOpen] = useState(false);
+
+  // Router hooks
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const menuItems = [
     { name: "About", icon: Home },
     { name: "Services", icon: Briefcase },
     { name: "Work", icon: UsersRound },
-    { name: "Results", "icon": BarChart2 },
+    { name: "Results", icon: BarChart2 },
     { name: "Brands", icon: Layers },
-    { name: "Contact", icon: MailIcon },
   ];
 
   const menuVariants = {
@@ -36,60 +40,57 @@ const Navbar = () => {
   };
 
   const handleScroll = (id) => {
-    const element = document.getElementById(id.toLowerCase());
-    if (element) {
-      gsap.to(window, { duration: 1.2, scrollTo: { y: element, offsetY: 80 }, ease: "power2.inOut" });
-      setMenuOpen(false);
-      setFormOpen(false);
-    }
-  };
+    const targetId = id.toLowerCase();
 
-  // useEffect(() => {
-  //   if (formOpen || menuOpen) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "auto";
-  //   }
-  // }, [formOpen, menuOpen]);
+    if (location.pathname === "/") {
+      // If on Home page, scroll immediately
+      const element = document.getElementById(targetId);
+      if (element) {
+        gsap.to(window, { duration: 1.2, scrollTo: { y: element, offsetY: 80 }, ease: "power2.inOut" });
+      }
+    } else {
+      // If NOT on Home page, navigate to Home and pass the targetId
+      navigate("/", { state: { targetId: targetId } });
+    }
+
+    // Close menus
+    setMenuOpen(false);
+    setFormOpen(false);
+  };
 
   return (
     <nav className="bg-[#020202] text-white px-4 sm:px-6 md:px-10 py-4 relative z-50">
       <div className="flex items-center justify-between w-full">
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <Link to={"/"} className="flex items-center gap-2">
           <img className="w-10 sm:w-14 md:w-20" src={logo} alt="Logo" loading="lazy" />
-          <motion.p
-            className="bg-[#FF1F1F] w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full"
-            animate={{ opacity: [1, 0.3, 1] }}
-            transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </div>
+        </Link>
 
         {/* Right Side */}
         <div className="flex items-center gap-3 sm:gap-4 relative">
           {/* Get in Touch Button */}
           <div className="relative">
-            <div className="rounded-full border border-[#654AFF]" style={{ width: "150px", height: "50px", padding: "3px" }}>
+            <div className="rounded-full border border-[#654AFF]" style={{ width: "170px", height: "50px", padding: "3px" }}>
               <motion.div
-                className="bg-[#654AFF] w-full h-full rounded-full font-uncut flex items-center justify-center text-white text-sm sm:text-[17px] font-light cursor-pointer"
+                className="bg-[#654AFF] w-full h-full rounded-full font-uncut flex items-center gap-2 justify-center text-white text-sm sm:text-[17px] font-light cursor-pointer"
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 animate={{ scale: hovered ? 0.96 : 1 }}
                 transition={{ duration: 0.2, ease: "easeInOut" }}
                 onClick={() => {
                   setFormOpen(!formOpen);
-                  setMenuOpen(false);     // close menu if open
+                  setMenuOpen(false);
                 }}
               >
-                Get in Touch
+                <Phone size={18} />
+                <p>Get in Touch</p>
               </motion.div>
             </div>
 
-            {/* Form Dropdown with Glassmorphism Effect */}
+            {/* Form Dropdown */}
             <AnimatePresence>
               {formOpen && (
                 <>
-                  {/* Overlay */}
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 0.5 }}
@@ -106,19 +107,13 @@ const Navbar = () => {
                     className="absolute top-full mt-2 -right-13 sm:right-0 w-80 sm:w-92 rounded-xl shadow-2xl px-5 py-5 z-40
                                 bg-white/10 backdrop-blur-xl border border-white/20 text-white"
                   >
-                    {/* Close Icon */}
-                    {/* <div className="flex justify-end mb-2">
-                      <X className="cursor-pointer text-white/80 hover:text-white" onClick={() => setFormOpen(false)} />
-                    </div> */}
-
-                    {/* Form Fields - Placeholder text color updated to placeholder-white/80 */}
                     <form className="flex flex-col gap-3 font-uncut">
                       <div className="flex items-center gap-2 border border-white/30 rounded-lg p-2 bg-black/10">
                         <UserRound size={18} className="text-white/70" />
                         <input
                           type="text"
                           placeholder="Your Name"
-                          className="w-full outline-none bg-transparent text-white placeholder-white/80" // UPDATED
+                          className="w-full outline-none bg-transparent text-white placeholder-white/80"
                         />
                       </div>
                       <div className="flex items-center gap-2 border border-white/30 rounded-lg p-2 bg-black/10">
@@ -126,22 +121,22 @@ const Navbar = () => {
                         <input
                           type="email"
                           placeholder="Your Email"
-                          className="w-full outline-none bg-transparent text-white placeholder-white/80" // UPDATED
+                          className="w-full outline-none bg-transparent text-white placeholder-white/80"
                         />
                       </div>
                       <div className="flex items-center gap-2 border border-white/30 rounded-lg py-2 pr-2 pl-4 bg-black/10">
                         <textarea
                           rows={3}
                           placeholder="Hey there..."
-                          className="w-full outline-none bg-transparent text-white resize-none placeholder-white/80" // UPDATED
+                          className="w-full outline-none bg-transparent text-white resize-none placeholder-white/80"
                         />
                       </div>
                       <button
                         type="submit"
                         className="bg-[#654AFF] text-white py-2 rounded-lg font-medium hover:bg-[#5434d8] transition-all duration-300 cursor-pointer
-                                   flex items-center justify-center gap-2" // Added flex, items-center, justify-center, gap-2
+                                   flex items-center justify-center gap-2"
                       >
-                        <Send size={18} /> {/* Added Send icon */}
+                        <Send size={18} />
                         Send Message
                       </button>
                     </form>
@@ -156,9 +151,9 @@ const Navbar = () => {
             className="bg-[#654AFF] rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center cursor-pointer z-50"
             onClick={() => {
               if (!formOpen) setMenuOpen(!menuOpen);
-              setFormOpen(false);     // close form when menu opens
+              setFormOpen(false);
             }}
-            style={{ pointerEvents: formOpen ? "none" : "auto" }}   // prevent click when form open
+            style={{ pointerEvents: formOpen ? "none" : "auto" }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
