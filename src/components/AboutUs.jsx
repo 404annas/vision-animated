@@ -66,7 +66,6 @@ const AboutUs = () => {
         ref={sectionRef}
         className="relative h-screen bg-black text-white flex items-center justify-center overflow-hidden"
         style={{ backfaceVisibility: "hidden" }}
-        id="about" // Added ID for navigation if needed
       >
         {/* Videos */}
         <video
@@ -92,7 +91,7 @@ const AboutUs = () => {
 
         {/* Text */}
         <div ref={textRef} className="absolute text-center px-4 z-10 w-full">
-          <h1 className="font-basement text-5xl sm:text-7xl md:text-[9rem] leading-[0.9] uppercase text-center font-bold tracking-tighter">
+          <h1 id="about" className="font-basement text-5xl sm:text-7xl md:text-[9rem] leading-[0.9] uppercase text-center font-bold tracking-tighter">
             Who<br />We Are?
           </h1>
           <p className="font-uncut text-[#B0B0B0] pt-8 sm:pt-12 text-sm sm:text-base md:text-xl leading-relaxed max-w-3xl mx-auto font-light">
